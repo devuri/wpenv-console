@@ -28,7 +28,7 @@ It provides a set of convenient commands to simplify common development tasks wh
 
 ### Backup
 
-Backup the WordPress web application.
+Backup the WordPress web application [(?)](https://devuri.github.io/wpenv-console/cli/backup.md).
 
 **Usage:**
 
