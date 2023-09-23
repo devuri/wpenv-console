@@ -4,6 +4,10 @@
 
 `WPEnv Console` is a command-line tool designed to simplify WordPress development and management tasks. It provides a set of commands to streamline common WordPress tasks and enhance your workflow. Whether you're setting up a new WordPress environment, managing plugins and themes, or performing routine maintenance, `WPEnv Console` has you covered.
 
+> **Note**
+> This repository houses the fundamental console components of wp-env-config. If you are developing an application, please utilize wp-env-app located in this repository: [wp-env-app](https://github.com/devuri/wp-env-app).
+
+
 ## Features
 
 - **WordPress Environment Management:** Easily create, configure, and manage WordPress environments with commands like `make:env`, `serve`, and `setup`.
