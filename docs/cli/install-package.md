@@ -14,7 +14,7 @@ You must provide the package slug as an argument. Additionally, you can specify 
 
 Specify the package type. Use `plugin` for plugins or `theme` for themes.
 
-For example, to add the plugin "brisko," you can use the following command:
+For example, to add the plugin "classic-editor," you can use the following command:
 
 ```bash
 php nino install classic-editor plugin
