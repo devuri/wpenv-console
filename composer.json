@@ -1,10 +1,10 @@
 {
-    "name": "devuri/dot-access",
-    "description": "A simple PHP library for accessing nested data using dot notation.",
+    "name": "devuri/wp-env-console",
+    "description": "A Composer package for handling encryption and decryption operations.",
     "keywords": [
-        "dot-access",
-        "nested-data",
-        "dot-notation"
+        "WordPress",
+        "console",
+        "security"
     ],
     "type": "library",
     "license": "MIT",
@@ -17,14 +17,26 @@
         }
     ],
     "support": {
-        "source": "https://github.com/devuri/dot-access",
-        "issues": "https://github.com/devuri/dot-access/issues"
+        "source": "https://github.com/devuri/wp-env-console",
+        "issues": "https://github.com/devuri/wp-env-console/issues"
     },
     "require": {
-        "php": "^7.4 || ^8.0",
-        "dflydev/dot-access-data": "^3.0"
+        "php": "^7.4 || ^8.0 || ^8.1",
+		"aws/aws-sdk-php": "^3.275",
+		"devuri/dot-access": "^0.2.2",
+        "devuri/encryption": "^0.1",
+        "devuri/secure-password": "^0.1",
+        "devuri/uuid-generator": "^0.0.1",
+		"symfony/console": "5.4.*",
+        "symfony/error-handler": "^5.4",
+        "symfony/filesystem": "^5.4",
+        "symfony/process": "^5.4",
+		"vlucas/phpdotenv": "^5.2"
     },
     "autoload": {
+		"files": [
+            "src/inc/helpers.php"
+        ],
         "psr-4": {
             "Urisoft\\": "src/"
         }
@@ -39,8 +51,12 @@
         "phpstan/phpstan": "^1.8",
         "phpstan/phpstan-strict-rules": "^1.3",
         "phpunit/phpunit": "^9.5",
+        "szepeviktor/phpstan-wordpress": "^1.1",
         "vimeo/psalm": "^4.24 || ^5.0"
     },
+	"bin": [
+		"bin/nino"
+	],
     "scripts": {
         "wpcs": "composer wpcs-lint",
         "wpcs-all": "composer wpcs-lint-all",
