@@ -17,8 +17,8 @@
         }
     ],
     "support": {
-        "source": "https://github.com/devuri/wp-env-console",
-        "issues": "https://github.com/devuri/wp-env-console/issues"
+        "source": "https://github.com/devuri/wpenv-console",
+        "issues": "https://github.com/devuri/wpenv-console/issues"
     },
     "require": {
         "php": "^7.4 || ^8.0 || ^8.1",
