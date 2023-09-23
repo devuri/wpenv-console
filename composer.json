@@ -100,9 +100,11 @@
             "composer install -q",
             "composer lint",
             "composer test",
+			"composer phpdoc -q",
             "composer no-dev -q"
         ],
         "phpstan": "@php ./vendor/bin/phpstan analyse",
+		"phpdoc": "@php ./bin/phpdoc",
         "psalm": "vendor/bin/psalm",
         "psalm-secure": "vendor/bin/psalm --taint-analysis",
         "psalm-info": "vendor/bin/psalm --show-info=true",
