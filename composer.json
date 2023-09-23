@@ -22,19 +22,19 @@
     },
     "require": {
         "php": "^7.4 || ^8.0 || ^8.1",
-		"aws/aws-sdk-php": "^3.275",
-		"devuri/dot-access": "^0.2.2",
+        "aws/aws-sdk-php": "^3.275",
+        "devuri/dot-access": "^0.2.2",
         "devuri/encryption": "^0.1",
         "devuri/secure-password": "^0.1",
         "devuri/uuid-generator": "^0.0.1",
-		"symfony/console": "5.4.*",
+        "symfony/console": "5.4.*",
         "symfony/error-handler": "^5.4",
         "symfony/filesystem": "^5.4",
         "symfony/process": "^5.4",
-		"vlucas/phpdotenv": "^5.2"
+        "vlucas/phpdotenv": "^5.2"
     },
     "autoload": {
-		"files": [
+        "files": [
             "src/inc/helpers.php"
         ],
         "psr-4": {
@@ -54,9 +54,9 @@
         "szepeviktor/phpstan-wordpress": "^1.1",
         "vimeo/psalm": "^4.24 || ^5.0"
     },
-	"bin": [
-		"bin/nino"
-	],
+    "bin": [
+        "bin/nino"
+    ],
     "scripts": {
         "wpcs": "composer wpcs-lint",
         "wpcs-all": "composer wpcs-lint-all",
@@ -100,11 +100,11 @@
             "composer install -q",
             "composer lint",
             "composer test",
-			"composer phpdoc -q",
+            "composer phpdoc -q",
             "composer no-dev -q"
         ],
         "phpstan": "@php ./vendor/bin/phpstan analyse",
-		"phpdoc": "@php ./bin/phpdoc",
+        "phpdoc": "@php ./bin/phpdoc",
         "psalm": "vendor/bin/psalm",
         "psalm-secure": "vendor/bin/psalm --taint-analysis",
         "psalm-info": "vendor/bin/psalm --show-info=true",
