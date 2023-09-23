@@ -1,6 +1,6 @@
 # Backup Command - WordPress Backup
 
-The `BackupCommand` is a part of `wpenv-console` designed to simplify the process of creating backups for your WordPress web application, including database backups and file backups.
+This is a part of `wpenv-console` designed to simplify the process of creating backups for your WordPress web application, including database backups and file backups.
 
 ## Usage
 
