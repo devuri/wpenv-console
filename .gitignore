@@ -9,3 +9,4 @@ composer.lock
 /.github
 /.idea
 /.phpdoc/cache
+/.phpdoc
