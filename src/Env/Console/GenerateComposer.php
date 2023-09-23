@@ -13,7 +13,7 @@ class GenerateComposer extends Command
 {
     use Env;
 
-    protected static $defaultName = 'generate:composer';
+    protected static $defaultName = 'make:composer';
 
     private $composer_file;
 

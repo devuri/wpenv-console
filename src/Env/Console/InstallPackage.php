@@ -11,14 +11,14 @@ use Symfony\Component\Process\Process;
 
 class InstallPackage extends Command
 {
-    protected static $defaultName = 'n:i';
+    protected static $defaultName = 'install';
 
     protected function configure(): void
     {
-        // php nino n:i -p theme brisko
+        // php nino install brisko theme
         $this->setDescription( 'Add a plugin or theme via composer using slug only' );
         $this->addArgument( 'package', InputArgument::REQUIRED, 'The slug of the plugin or theme (example: brisko)' );
-        $this->addOption( 'type', 'p', InputOption::VALUE_REQUIRED, 'Package type' );
+        $this->addArgument( 'type', InputArgument::REQUIRED, 'Package type' );
     }
 
     /**
@@ -29,7 +29,7 @@ class InstallPackage extends Command
     protected function execute( InputInterface $input, OutputInterface $output ): int
     {
         $package = $input->getArgument( 'package' );
-        $_type   = $input->getOption( 'type' );
+        $_type   = $input->getArgument( 'type' );
 
         if ( 'plugin' === $_type ) {
             $package_name = 'wpackagist-plugin/' . $package;
