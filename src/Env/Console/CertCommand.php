@@ -12,7 +12,7 @@ use Symfony\Component\Process\Process;
 
 class CertCommand extends Command
 {
-    protected static $defaultName = 'ssl';
+    protected static $defaultName = 'wp:ssl';
 
     protected function configure(): void
     {
