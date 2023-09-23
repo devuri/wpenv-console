@@ -67,7 +67,7 @@ WPEnv Console offers the following commands to simplify your WordPress developme
 4. **Install Package**: Add a plugin or theme via Composer using the slug only.
 
    ```bash
-   php bin/nino n:i <package_slug> --type=<plugin_or_theme>
+   php bin/nino install <package_slug>  <plugin_or_theme>
    ```
 
 5. **Generate .htpasswd**: Create an .htpasswd file for authentication.
@@ -85,7 +85,7 @@ WPEnv Console offers the following commands to simplify your WordPress developme
 7. **Generate Composer**: Generate a fresh copy of composer.json and run composer install.
 
    ```bash
-   php bin/nino generate:composer
+   php bin/nino make:composer
    ```
 
 8. **WordPress Installation**: Install WordPress with customizable options.
