@@ -1,6 +1,6 @@
 # Make Command - Create Database Admin Directory
 
-The `Make Command` is a part of `wpenv-console` that allows you to create a database admin directory for your WordPress project. This directory is typically used to store database-related access, such as adminer.
+The `Make Database Admin` is a part of `wpenv-console` that allows you to create a database admin directory for your WordPress project. This directory is typically used to store database-related access, such as adminer.
 
 ## Usage
 
