@@ -1,167 +1,55 @@
-# DotAccess - Convenient Access to Nested Data Using Dot Notation
+# WPEnv Console
 
-The `DotAccess` class provides a user-friendly wrapper around the functionality of the `Dflydev\DotAccessData\Data` package, allowing easy access to nested data using dot notation in PHP.
+[![License](https://img.shields.io/github/license/devuri/wpenv-console)](https://github.com/devuri/wpenv-console/blob/master/LICENSE)
+
+`WPEnv Console` is a command-line tool designed to simplify WordPress development and management tasks. It provides a set of commands to streamline common WordPress tasks and enhance your workflow. Whether you're setting up a new WordPress environment, managing plugins and themes, or performing routine maintenance, `WPEnv Console` has you covered.
+
+## Features
+
+- **WordPress Environment Management:** Easily create, configure, and manage WordPress environments with commands like `make:env`, `serve`, and `setup`.
+
+- **Plugin and Theme Installation:** Install and manage plugins and themes directly from the WordPress Packagist repository using the `install:package` command.
+
+- **Database Management:** Create database backups, generate `.htpasswd` files for authentication, and set up database admin directories with ease.
+
+- **WordPress Installation:** Quickly install WordPress with customizable options using the `wp:install` command.
+
+- **Auto-login URLs:** Generate auto-login URLs for users during development and testing with the `wp:login` command.
 
 ## Installation
 
-1. Ensure you have [Composer](https://getcomposer.org/) installed on your system.
-2. Run the following command to install the package:
+You can install `WPEnv Console` via Composer by running:
 
 ```bash
-composer require devuri/dot-access
+composer require devuri/wpenv-console
 ```
 
-## Getting Started
+## Usage
 
-1. Include the `DotAccess` class in your PHP script:
+Once installed, you can run `WPEnv Console` commands using `php bin/console` followed by the desired command. For example:
 
-```php
-
-use Urisoft\DotAccess;
-
+```bash
+php nino make:env my-project
 ```
 
-2. Create an instance of the `DotAccess` class and pass the nested data (array or object) to the constructor:
+For a complete list of available commands and their descriptions, run:
 
-```php
-$data = [
-    'user' => [
-        'name' => 'John Doe',
-        'email' => 'john.doe@example.com',
-        'address' => [
-            'city' => 'New York',
-            'country' => 'USA',
-        ],
-    ],
-];
-
-$dotdata = new DotAccess($data);
+```bash
+php nino list
 ```
 
-## Accessing Data
+## Documentation
 
-The `DotAccess` class provides the following methods to access the nested data using dot notation:
+For detailed documentation on each command and how to use them effectively, please refer to the [official documentation](https://github.com/devuri/wpenv-console/wiki).
 
-### Get the Value
+## Contributing
 
-Use the `get()` method to retrieve the value associated with a dot notation key:
-
-```php
-$name = $dotdata->get('user.name');
-$email = $dotdata->get('user.email');
-$city = $dotdata->get('user.address.city');
-```
-
-### Set the Value
-
-Use the `set()` method to set a value for a dot notation key:
-
-```php
-$dotdata->set('user.age', 30);
-```
-
-### Checking for Key Existence
-
-Use the `has()` method to check if a dot notation key exists in the data:
-
-```php
-$emailExists = $dotdata->has('user.email');
-```
-
-### Removing a Key
-
-Use the `remove()` method to unset the value associated with a dot notation key:
-
-```php
-$dotdata->remove('user.address.country');
-```
-
-## Example
-
-```php
-$data = [
-    'user' => [
-        'name' => 'John Doe',
-        'email' => 'john.doe@example.com',
-        'address' => [
-            'city' => 'New York',
-            'country' => 'USA',
-        ],
-    ],
-];
-
-$dotdata = new DotAccess($data);
-
-$name = $dotdata->get('user.name'); // Output: "John Doe"
-$dotdata->set('user.age', 30);
-$emailExists = $dotdata->has('user.email'); // Output: true
-$dotdata->remove('user.address.country');
-
-echo "Name: $name\n";
-echo "Age: " . $dotdata->get('user.age') . "\n";
-echo "Email exists: " . ($emailExists ? 'Yes' : 'No') . "\n";
-```
-
-## Wrapper Function - DataKey:get()
-
-In addition to the `DotAccess` class, we also provide a standalone wrapper function `DataKey` that simplifies accessing nested data using dot notation.
-
-### Usage
-
-The `DataKey:get()` function allows you to quickly access nested data without having to create an instance of the `DotAccess` class. It takes three parameters:
-
-1. The data array or object to access.
-2. The dot notation key to access the data.
-3. An optional default value to return if the key is not found.
-
-Here's how you can use the `DataKey:get()` function:
-
-```php
-$data = [
-    'user' => [
-        'name' => 'John Doe',
-        'email' => 'john.doe@example.com',
-        'address' => [
-            'city' => 'New York',
-            'country' => 'USA',
-        ],
-    ],
-];
-
-// Using the wrapper function
-$name = DataKey:get($data, 'user.name');
-$email = DataKey:get($data, 'user.email');
-$city = DataKey:get($data, 'user.address.city');
-$zipCode = DataKey:get($data, 'user.address.zip_code', 'N/A'); // Provide a default value if the key doesn't exist
-
-echo "Name: $name\n";
-echo "Email: $email\n";
-echo "City: $city\n";
-echo "Zip Code: $zipCode\n";
-```
-
-### When to Use `DataKey:get()` vs. `DotAccess`
-
-Both the `DataKey:get()` function and the `DotAccess` class serve the same purpose: accessing nested data using dot notation. The choice between them depends on your specific use case and coding preferences.
-
-Use `DataKey:get()` when:
-
-- You prefer a simple function call over creating an instance of the `DotAccess` class.
-- You only need to access nested data at a few specific points in your code.
-- You don't need to perform multiple operations (e.g., setting, checking, or removing keys).
-
-Use `DotAccess` class when:
-
-- You need to perform multiple operations on the same nested data within your code.
-- You prefer an object-oriented approach for handling nested data.
-- You need better encapsulation and separation of concerns in your code.
-
-Both approaches provide a convenient and user-friendly way to work with nested data using dot notation. Choose the one that best fits your coding style and requirements.
+Contributions, issues, and feature requests are welcome! Feel free to check out the [contributing guidelines](CONTRIBUTING.md) and [code of conduct](CODE_OF_CONDUCT.md).
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+`WPEnv Console` is open-source software licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute it as per the terms of the license.
 
-## Acknowledgments
+## Support and Feedback
 
-The `DotAccess` class is a simple wrapper around the `Dflydev\DotAccessData\Data` package, which provides the core functionality for accessing nested data using dot notation. Special thanks to the authors of the `Dflydev\DotAccessData` package for their excellent work.
+For questions, issues, or feedback related to `WPEnv Console`, please visit the [GitHub repository](https://github.com/devuri/wpenv-console) or join the [community](https://community.wpenv.io/).
