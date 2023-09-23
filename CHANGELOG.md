@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.4](https://github.com/devuri/wpenv-console/compare/v0.1.3...v0.1.4) (2023-09-23)
+
+
+### Bug Fixes
+
+* the `ssl` command is now `wp:ssl` ([16d3e01](https://github.com/devuri/wpenv-console/commit/16d3e012f84528e0faa7b9acf05e632d9b407967))
+
 ## [0.1.3](https://github.com/devuri/wpenv-console/compare/v0.1.2...v0.1.3) (2023-09-23)
 
 
