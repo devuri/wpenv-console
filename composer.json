@@ -1,5 +1,5 @@
 {
-    "name": "devuri/wp-env-console",
+    "name": "devuri/wpenv-console",
     "description": "A Composer package for handling encryption and decryption operations.",
     "keywords": [
         "WordPress",
