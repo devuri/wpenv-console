@@ -7,7 +7,7 @@ The `Generate Composer` command is a part of `wpenv-console` that simplifies the
 To generate a fresh `composer.json` file and run `composer install`, use the following command:
 
 ```bash
-php nino generate:composer
+php nino make:composer
 ```
 
 This command will generate a `composer.json` file with a basic configuration for a WordPress project and then run `composer install` to install the required dependencies.
