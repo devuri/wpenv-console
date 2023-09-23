@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/github/license/devuri/wpenv-console)](https://github.com/devuri/wpenv-console/blob/master/LICENSE)
 
-`WPEnv Console` is a command-line tool designed to simplify WordPress development and management tasks. It provides a set of commands to streamline common WordPress tasks and enhance your workflow. Whether you're setting up a new WordPress environment, managing plugins and themes, or performing routine maintenance, `WPEnv Console` has you covered.
+`WPEnv Console` is a command-line tool designed to simplify WordPress development and management tasks. It that extends the functionality of the [WPEnv](https://github.com/devuri/wp-env-config) development environment. It provides a set of commands to streamline common WordPress tasks and enhance your workflow. Whether you're setting up a new WordPress environment, managing plugins and themes, or performing routine maintenance, `WPEnv Console` has you covered.
 
 > **Note**
 > This repository houses the fundamental console components of wp-env-config. If you are developing an application, please utilize wp-env-app located in this repository: [wp-env-app](https://github.com/devuri/wp-env-app).
@@ -30,7 +30,7 @@ composer require devuri/wpenv-console
 
 ## Usage
 
-Once installed, you can run `WPEnv Console` commands using `php bin/console` followed by the desired command. For example:
+Once installed, you can run `WPEnv Console` commands using `php bin/nino` followed by the desired command. For example:
 
 ```bash
 php nino make:env my-project
@@ -42,9 +42,69 @@ For a complete list of available commands and their descriptions, run:
 php nino list
 ```
 
-## Documentation
+## Available Commands
 
-For detailed documentation on each command and how to use them effectively, please refer to the [official documentation](https://github.com/devuri/wpenv-console/wiki).
+WPEnv Console offers the following commands to simplify your WordPress development tasks:
+
+1. **Make Environment**: Create a new WordPress environment.
+
+   ```bash
+   php bin/nino make:env <name>
+   ```
+
+2. **Serve**: Start the built-in PHP web server.
+
+   ```bash
+   php bin/nino serve
+   ```
+
+3. **Setup**: Search and replace domain in multiple files.
+
+   ```bash
+   php bin/nino setup <replacement_domain>
+   ```
+
+4. **Install Package**: Add a plugin or theme via Composer using the slug only.
+
+   ```bash
+   php bin/nino n:i <package_slug> --type=<plugin_or_theme>
+   ```
+
+5. **Generate .htpasswd**: Create an .htpasswd file for authentication.
+
+   ```bash
+   php bin/nino make:htpass [--username=<username>] [--password=<password>]
+   ```
+
+6. **Database Backup**: Backup the WordPress database.
+
+   ```bash
+   php bin/nino db:backup
+   ```
+
+7. **Generate Composer**: Generate a fresh copy of composer.json and run composer install.
+
+   ```bash
+   php bin/nino generate:composer
+   ```
+
+8. **WordPress Installation**: Install WordPress with customizable options.
+
+   ```bash
+   php bin/nino wp:install [--title=<blog_title>] [--user=<admin_username>] [--email=<admin_email>]
+   ```
+
+9. **WordPress Auto-login**: Generate an auto-login URL for a user.
+
+   ```bash
+   php bin/nino wp:login [--user=<admin_username>]
+   ```
+
+10. **Create DB Admin Directory**: Create a database admin directory.
+
+    ```bash
+    php bin/nino make:dbadmin [--_dir=<directory_name>]
+    ```
 
 ## Contributing
 
