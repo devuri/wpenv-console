@@ -1,5 +1,5 @@
 
-# CertCommand - SSL Provisioning
+# SSL Provisioning
 
 This a part of `wpenv-console` that simplifies SSL certificate provisioning using Certbot.
 
