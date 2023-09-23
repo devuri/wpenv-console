@@ -99,14 +99,14 @@ class LoginCommand extends Command
         $dotenv = Dotenv::createImmutable(
             $root_dir_path,
             [
-                'wpenv',
-                '.wpenv',
-                '.wpenv.secure',
-                '.wpenv.prod',
-                '.wpenv.staging',
-                '.wpenv.dev',
-                '.wpenv.debug',
-                '.wpenv.local',
+                'env',
+                '.env',
+                '.env.secure',
+                '.env.prod',
+                '.env.staging',
+                '.env.dev',
+                '.env.debug',
+                '.env.local',
             ]
         );
         $dotenv->load();
