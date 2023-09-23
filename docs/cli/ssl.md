@@ -28,7 +28,4 @@ php nino ssl-certbot --domain example.com --email admin@example.com
 
 ## Support and Feedback
 
-For questions, issues, or feedback related to `wpenv-console` or the `CertCommand`, please create an issue on [GitHub](https://github.com/your-vendor/wpenv-console/issues).
-
-
-This simplified README provides essential information about the `CertCommand` for SSL provisioning using Certbot. You can further customize it to match your package's specific details and use cases.
+For questions, issues, or feedback related to `wpenv-console` or this command, please create an issue on [GitHub](https://github.com/devuri/wpenv-console/issues).
