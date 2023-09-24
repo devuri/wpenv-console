@@ -152,7 +152,10 @@ class ConfigCommand extends Command
         }
     }
 
-    protected function set_maintenance_mode( $_task ): void
+    /**
+     * @psalm-param 'down'|'up' $_task
+     */
+    protected function set_maintenance_mode( string $_task ): void
     {
         if ( 'up' === $_task ) {
             if ( $this->filesystem->exists( $this->root_dir_path . '/public/.maintenance' ) ) {

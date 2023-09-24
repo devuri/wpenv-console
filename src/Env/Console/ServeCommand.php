@@ -67,10 +67,11 @@ class ServeCommand extends Command
         $env_home_url = explode( ':', $this->app_env['WP_HOME'] );
         $env_port     = $env_home_url[2] ?? 0;
 
-		if ( 0 === $env_port ) {
-			$output->writeln( PHP_EOL . "<comment>Port is not set or invalid, check WP_HOME in the .env file port:$env_port</comment>" . PHP_EOL );
-			return Command::FAILURE;
-		}
+        if ( 0 === $env_port ) {
+            $output->writeln( PHP_EOL . "<comment>Port is not set or invalid, check WP_HOME in the .env file port:$env_port</comment>" . PHP_EOL );
+
+            return Command::FAILURE;
+        }
 
         if ( ! $this->is_valid_env_port( (int) $port, (int) $env_port ) ) {
             $output->writeln( PHP_EOL . "<comment>Port:$port did not match will override with .env port:$env_port</comment>" . PHP_EOL );
