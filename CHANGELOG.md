@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.6](https://github.com/devuri/wpenv-console/compare/v0.1.5...v0.1.6) (2023-09-24)
+
+
+### Bug Fixes
+
+* fix the port when not set in .env file ([02037c9](https://github.com/devuri/wpenv-console/commit/02037c99f12e4df1a3f8e397698bef25d9ab5dee))
+
 ## [0.1.5](https://github.com/devuri/wpenv-console/compare/v0.1.4...v0.1.5) (2023-09-24)
 
 
