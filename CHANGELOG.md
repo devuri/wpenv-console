@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.5](https://github.com/devuri/wpenv-console/compare/v0.1.4...v0.1.5) (2023-09-24)
+
+
+### Bug Fixes
+
+* fix Env files property, same property ($files) ([c06ca68](https://github.com/devuri/wpenv-console/commit/c06ca68197980c90a3757f01aa0bf6216e03270f))
+
 ## [0.1.4](https://github.com/devuri/wpenv-console/compare/v0.1.3...v0.1.4) (2023-09-23)
 
 
