@@ -546,11 +546,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Urisoft-Env-Console-ServeCommand.html#property_app_env"
         },                {
-            "fqsen": "\\Urisoft\\Env\\Console\\ServeCommand\u003A\u003A\u0024files",
-            "name": "files",
-            "summary": "",
-            "url": "classes/Urisoft-Env-Console-ServeCommand.html#property_files"
-        },                {
             "fqsen": "\\Urisoft\\Env\\Console\\SetupCommand",
             "name": "SetupCommand",
             "summary": "",

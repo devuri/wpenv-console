@@ -78,11 +78,11 @@ trait Generate
      *
      * @throws Exception
      *
-     * @return int A randomly generated integer between the values specified.
-     *
      * @see https://www.php.net/manual/en/function.random-int.php
      *
-     * @psalm-return int<100000, 900000>
+     * @return int A randomly generated integer between the values specified.
+     *
+     * @psalm-return int<min, max>
      */
     public static function random_id( int $min = 100000, int $max = 900000 ): int
     {
@@ -203,9 +203,9 @@ trait Generate
     /**
      * Get the consonants array.
      *
-     * @return string[] The consonants array.
+     * @return string[]
      *
-     * @psalm-return array{0: 'b', 1: 'c', 2: 'd', 3: 'f', 4: 'g', 5: 'h', 6: 'j', 7: 'k', 8: 'l', 9: 'm', 10: 'n', 11: 'p', 12: 'q', 13: 'r', 14: 's', 15: 't', 16: 'v', 17: 'w', 18: 'x', 19: 'y', 20: 'z'}
+     * @psalm-return list{'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'}
      */
     private function get_consonants(): array
     {
@@ -215,9 +215,9 @@ trait Generate
     /**
      * Get the vowels array.
      *
-     * @return string[] The vowels array.
+     * @return string[]
      *
-     * @psalm-return array{0: 'a', 1: 'e', 2: 'i', 3: 'o', 4: 'u'}
+     * @psalm-return list{'a', 'e', 'i', 'o', 'u'}
      */
     private function get_vowels(): array
     {

@@ -204,7 +204,7 @@ class BackupCommand extends Command
      *
      * @param mixed $project
      *
-     * @return string
+     * @return null|string
      */
     private function wpbucket_dir( $project = 'prod' ): ?string
     {
