@@ -19,7 +19,6 @@ class ServeCommand extends Command
     protected static $defaultName = 'serve';
 
     private $app_env;
-    private $files;
 
     public function __construct( string $root_dir_path, Filesystem $filesystem )
     {
