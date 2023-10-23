@@ -18,7 +18,7 @@ The `Setup Command` creates the following files:
 
 - `.env`: The environment configuration file.
 
-If any of these files do not exist in your project directory, the command will create them.
+If any of the file does not exist in your project directory, the command will create it.
 
 ## Database Prefix
 
@@ -26,7 +26,7 @@ The command also generates a random database prefix (e.g., `wp_12345678_`) and u
 
 ## Security Salts
 
-Security salts are essential for enhancing the security of your WordPress installation. The command automatically generates salts and appends them to the `.env` file.
+Security salts are essential for enhancing the security of your WordPress installation. The command automatically generates salts and adds them to the `.env` file.
 
 ## Auto-login Secret
 
