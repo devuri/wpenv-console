@@ -321,9 +321,10 @@ class BackupCommand extends Command
         $process->setInput( null );
 
         // Run the process silently
+        // https://symfony.com/doc/current/components/process.html#getting-real-time-process-output
         $process->run(
             function ( $type, $buffer ): void {
-                // Do nothing with the output
+                return;
             }
         );
 

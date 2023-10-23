@@ -790,7 +790,7 @@ PHP&#039;s built-in random_int function.</p>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
-                                                 <section class="phpdocumentor-description"><p>int&lt;100000, 900000&gt;</p>
+                                                 <section class="phpdocumentor-description"><p>int&lt;min, max&gt;</p>
 </section>
 
                                     </dd>
@@ -1181,7 +1181,7 @@ using bin2hex to ensure it is suitable for use in various security-related scena
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
-                                                 <section class="phpdocumentor-description"><p>array{0: 'DB_USER', 1: 'DB_PASSWORD', 2: 'AUTH_KEY', 3: 'SECURE_AUTH_KEY', 4: 'LOGGED_IN_KEY', 5: 'NONCE_KEY', 6: 'AUTH_SALT', 7: 'SECURE_AUTH_SALT', 8: 'LOGGED_IN_SALT', 9: 'NONCE_SALT'}</p>
+                                                 <section class="phpdocumentor-description"><p>array{0: 'DB_USER', 1: 'DB_PASSWORD', 2: 'AUTH_KEY', 3: 'SECURE_AUTH_KEY', 4: 'LOGGED_IN_KEY', 5: 'NONCE_KEY', 6: 'AUTH_SALT', 7: 'SECURE_AUTH_SALT', 8: 'LOGGED_IN_SALT', 9: 'NONCE_SALT',...}</p>
 </section>
 
                                     </dd>
@@ -1601,22 +1601,21 @@ echo $websiteName;  // Output: staging-mycoolwebsite-io
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Env/Console/ConfigCommand.php"><a href="files/src-env-console-configcommand.html"><abbr title="src/Env/Console/ConfigCommand.php">ConfigCommand.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">155</span>
+    <span class="phpdocumentor-element-found-in__line">158</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">set_maintenance_mode</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_task</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">set_maintenance_mode</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_task</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$_task</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>
@@ -1625,6 +1624,21 @@ echo $websiteName;  // Output: staging-mycoolwebsite-io
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">psalm-param</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>'down'|'up' $_task</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">void</span>
@@ -1668,7 +1682,7 @@ echo $websiteName;  // Output: staging-mycoolwebsite-io
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
-                                                 <section class="phpdocumentor-description"><p>array{0: 'b', 1: 'c', 2: 'd', 3: 'f', 4: 'g', 5: 'h', 6: 'j', 7: 'k', 8: 'l', 9: 'm', 10: 'n', 11: 'p', 12: 'q', 13: 'r', 14: 's', 15: 't', 16: 'v', 17: 'w', 18: 'x', 19: 'y', 20: 'z'}</p>
+                                                 <section class="phpdocumentor-description"><p>list{'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'}</p>
 </section>
 
                                     </dd>
@@ -1677,9 +1691,7 @@ echo $websiteName;  // Output: staging-mycoolwebsite-io
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
             &mdash;
-            <section class="phpdocumentor-description"><p>The consonants array.</p>
-</section>
-
+        
     
 </article>
                     <article
@@ -1718,7 +1730,7 @@ echo $websiteName;  // Output: staging-mycoolwebsite-io
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
-                                                 <section class="phpdocumentor-description"><p>array{0: 'a', 1: 'e', 2: 'i', 3: 'o', 4: 'u'}</p>
+                                                 <section class="phpdocumentor-description"><p>list{'a', 'e', 'i', 'o', 'u'}</p>
 </section>
 
                                     </dd>
@@ -1727,9 +1739,7 @@ echo $websiteName;  // Output: staging-mycoolwebsite-io
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
             &mdash;
-            <section class="phpdocumentor-description"><p>The vowels array.</p>
-</section>
-
+        
     
 </article>
                     <article
@@ -1745,7 +1755,7 @@ echo $websiteName;  // Output: staging-mycoolwebsite-io
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Env/Console/ConfigCommand.php"><a href="files/src-env-console-configcommand.html"><abbr title="src/Env/Console/ConfigCommand.php">ConfigCommand.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">176</span>
+    <span class="phpdocumentor-element-found-in__line">179</span>
 
     </aside>
 
