@@ -566,6 +566,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Urisoft-Env-Console-SetupCommand.html#method_execute"
         },                {
+            "fqsen": "\\Urisoft\\Env\\Console\\SetupCommand\u003A\u003AenvFileContent\u0028\u0029",
+            "name": "envFileContent",
+            "summary": "",
+            "url": "classes/Urisoft-Env-Console-SetupCommand.html#method_envFileContent"
+        },                {
             "fqsen": "\\Urisoft\\Env\\Console\\SetupCommand\u003A\u003A\u0024defaultName",
             "name": "defaultName",
             "summary": "",

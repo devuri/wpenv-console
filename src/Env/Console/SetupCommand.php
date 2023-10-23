@@ -3,7 +3,6 @@
 namespace Urisoft\Env\Console;
 
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Filesystem\Filesystem;
@@ -31,8 +30,7 @@ class SetupCommand extends Command
 
     protected function configure(): void
     {
-        $this->setDescription( 'Search and replace domain in multiple files.' )
-            ->addArgument( '_domain', InputArgument::REQUIRED, 'The replacement domain.' );
+        $this->setDescription( 'Creates .env file for new Application' );
     }
 
     /**
@@ -40,52 +38,87 @@ class SetupCommand extends Command
      */
     protected function execute( InputInterface $input, OutputInterface $output ): int
     {
-        $replacementDomain = $input->getArgument( '_domain' );
-
         if ( ! $this->filesystem->exists( $this->files['env'] ) ) {
-            $output->writeln( '<comment>.env file does not exist. we will use .env-example.</comment>' );
-            $this->filesystem->rename( $this->root_dir_path . '/.env-example', $this->files['env'] );
+            $output->writeln( '<comment>.env file does not exist. we will create the file.</comment>' );
+            $this->filesystem->dumpFile( $this->files['env'], $this->envFileContent() );
+            $output->writeln( '<info>Remember to update .env with the application domain and remove example.com.</info>' );
         }
-
-        $dbprefix = strtolower( self::rand_str( 8 ) . '_' );
-
-        foreach ( $this->files as $key => $file ) {
-            $pattern     = 'example.com';
-            $replacement = $replacementDomain;
-
-            if ( $this->filesystem->exists( $file ) ) {
-                $backupFile = $file . '.bak';
-                $this->filesystem->copy( $file, $backupFile );
-
-                $contents = file_get_contents( $file );
-                $contents = str_replace( $pattern, $replacement, $contents );
-
-                if ( '.env' === basename( $file ) ) {
-                    // (?!\w)  This ensures that lines like "DB_PREFIX=wp_yg4tzb" are not matched
-                    $contents = preg_replace( '/^(DB_PREFIX=wp_(?!\w)).*$/m', "DB_PREFIX=wp_$dbprefix" . PHP_EOL, $contents );
-                }
-
-                $this->filesystem->dumpFile( $file, $contents );
-
-                $output->writeln( "<info>Replaced: '$pattern' in $file with '$replacement'.</info>" );
-            } else {
-                $output->writeln( "Skipped: <comment>Could not find $file.</comment>" );
-            }
-        }// end foreach
-
-        $salts = (object) $this->saltToArray();
-
-        if ( $this->filesystem->exists( $this->files['env'] ) ) {
-            $this->filesystem->appendToFile( $this->files['env'], "\n" . self::saltContent( $salts ) );
-            $output->writeln( '<info>Salts added to env </info>' );
-        } else {
-            $this->filesystem->dumpFile( $this->files['env'], self::saltContent( $salts ) );
-            $output->writeln( '<info>Salts saved to new env file.</info>' );
-        }
-
-        // Adds login secret.
-        $this->filesystem->appendToFile( $this->files['env'], self::autoLoginSecret() );
 
         return Command::SUCCESS;
+    }
+
+	protected function envFileContent(): string
+    {
+        $auto_login_secret = bin2hex( random_bytes( 32 ) );
+
+        $app_tenant_secret = bin2hex( random_bytes( 32 ) );
+
+        $salt = (object) $this->saltToArray();
+
+        $home_url       = 'http://example.com';
+        $site_url       = '${WP_HOME}/wp';
+        $dbprefix       = strtolower( 'wp_' . self::rand_str( 8 ) . '_' );
+        $app_public_key = self::uuid();
+
+        return <<<END
+		WP_HOME='$home_url'
+		WP_SITEURL="$site_url"
+
+		APP_TENANT_ID=null
+		IS_MULTI_TENANT_APP=false
+		APP_TENANT_SECRET='$app_tenant_secret'
+
+		BASIC_AUTH_USER='admin'
+		BASIC_AUTH_PASSWORD='demo'
+
+		USE_APP_THEME=false
+		WP_ENVIRONMENT_TYPE='debug'
+		BACKUP_PLUGINS=false
+
+		SEND_EMAIL_CHANGE_EMAIL=false
+		SENDGRID_API_KEY=''
+		SUDO_ADMIN='1'
+
+		WPENV_AUTO_LOGIN_SECRET_KEY='$auto_login_secret'
+		WEB_APP_PUBLIC_KEY=$app_public_key
+		SEND_EMAIL_CHANGE_EMAIL=false
+
+		# Premium
+		ELEMENTOR_PRO_LICENSE=''
+		AVADAKEY=''
+		BACKUP_PLUGINS=false
+
+		MEMORY_LIMIT='256M'
+		MAX_MEMORY_LIMIT='256M'
+
+		FORCE_SSL_ADMIN=false
+		FORCE_SSL_LOGIN=false
+
+		# s3backup
+		ENABLE_S3_BACKUP=false
+		S3ENCRYPTED_BACKUP=false
+		S3_BACKUP_KEY=null
+		S3_BACKUP_SECRET=null
+		S3_BACKUP_BUCKET='wp-s3snaps'
+		S3_BACKUP_REGION='us-west-1'
+		S3_BACKUP_DIR=null
+		DELETE_LOCAL_S3BACKUP=false
+
+		DB_NAME=localdb
+		DB_USER=root
+		DB_PASSWORD=password
+		DB_HOST=localhost
+		DB_PREFIX=$dbprefix
+
+		AUTH_KEY='$salt->AUTH_KEY'
+		SECURE_AUTH_KEY='$salt->SECURE_AUTH_KEY'
+		LOGGED_IN_KEY='$salt->LOGGED_IN_KEY'
+		NONCE_KEY='$salt->NONCE_KEY'
+		AUTH_SALT='$salt->AUTH_SALT'
+		SECURE_AUTH_SALT='$salt->SECURE_AUTH_SALT'
+		LOGGED_IN_SALT='$salt->LOGGED_IN_SALT'
+		NONCE_SALT='$salt->NONCE_SALT'
+
+		END;
     }
 }
