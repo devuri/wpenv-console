@@ -1,4 +1,4 @@
-# Setup Command - Search and Replace Domain in Multiple Files
+# Setup Command - Creates a fresh .env file
 
 The `Setup Command` is a part of `wpenv-console` that simplifies the process of configuring and setting up a WordPress environment. This command is particularly useful when you need to quickly setup your WordPress project.
 
@@ -7,20 +7,18 @@ The `Setup Command` is a part of `wpenv-console` that simplifies the process of 
 To run the `Setup Command`, use the following command:
 
 ```bash
-php nino setup your-new-domain.com
+php nino setup
 ```
 
 Replace `your-new-domain.com` with the domain you want to set up. The command will search for specific configuration files and update them with the new domain.
 
 ## Configuration Files
 
-The `Setup Command` searches for and updates the following configuration files:
+The `Setup Command` creates the following files:
 
 - `.env`: The environment configuration file.
-- `.htaccess`: The Apache `.htaccess` file.
-- `robots.txt`: The `robots.txt` file.
 
-If any of these files do not exist in your project directory, the command will create them based on the corresponding example files (e.g., `.env-example`) if available.
+If any of these files do not exist in your project directory, the command will create them.
 
 ## Database Prefix
 
@@ -28,7 +26,7 @@ The command also generates a random database prefix (e.g., `wp_12345678_`) and u
 
 ## Security Salts
 
-Security salts are essential for enhancing the security of your WordPress installation. The command automatically generates salts and appends them to the `.env` file. If the `.env` file does not exist, it will create a new one with the salts.
+Security salts are essential for enhancing the security of your WordPress installation. The command automatically generates salts and appends them to the `.env` file.
 
 ## Auto-login Secret
 
