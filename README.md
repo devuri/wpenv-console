@@ -58,7 +58,7 @@ WPEnv Console offers the following commands to simplify your WordPress developme
    php bin/nino serve
    ```
 
-3. **Setup**: Search and replace domain in multiple files.
+3. **Setup**: Creates a fresh .env file .
 
    ```bash
    php bin/nino setup <replacement_domain>
