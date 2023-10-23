@@ -31,8 +31,7 @@ class SetupCommand extends Command
 
     protected function configure(): void
     {
-        $this->setDescription( 'Search and replace domain in multiple files.' )
-            ->addArgument( '_domain', InputArgument::REQUIRED, 'The replacement domain.' );
+        $this->setDescription( 'Creates .env file for new Application' );
     }
 
     /**
@@ -40,51 +39,11 @@ class SetupCommand extends Command
      */
     protected function execute( InputInterface $input, OutputInterface $output ): int
     {
-        $replacementDomain = $input->getArgument( '_domain' );
-
         if ( ! $this->filesystem->exists( $this->files['env'] ) ) {
-            $output->writeln( '<comment>.env file does not exist. we will use .env-example.</comment>' );
-            $this->filesystem->rename( $this->root_dir_path . '/.env-example', $this->files['env'] );
+            $output->writeln( '<comment>.env file does not exist. we will create the file.</comment>' );
+			$this->filesystem->dumpFile( $this->files['env'], $this->envFileContent() );
+			$output->writeln( '<info>Remember to update .env with the application domain and remove example.com.</info>' );
         }
-
-        $dbprefix = strtolower( self::rand_str( 8 ) . '_' );
-
-        foreach ( $this->files as $key => $file ) {
-            $pattern     = 'example.com';
-            $replacement = $replacementDomain;
-
-            if ( $this->filesystem->exists( $file ) ) {
-                $backupFile = $file . '.bak';
-                $this->filesystem->copy( $file, $backupFile );
-
-                $contents = file_get_contents( $file );
-                $contents = str_replace( $pattern, $replacement, $contents );
-
-                if ( '.env' === basename( $file ) ) {
-                    // (?!\w)  This ensures that lines like "DB_PREFIX=wp_yg4tzb" are not matched
-                    $contents = preg_replace( '/^(DB_PREFIX=wp_(?!\w)).*$/m', "DB_PREFIX=wp_$dbprefix" . PHP_EOL, $contents );
-                }
-
-                $this->filesystem->dumpFile( $file, $contents );
-
-                $output->writeln( "<info>Replaced: '$pattern' in $file with '$replacement'.</info>" );
-            } else {
-                $output->writeln( "Skipped: <comment>Could not find $file.</comment>" );
-            }
-        }// end foreach
-
-        $salts = (object) $this->saltToArray();
-
-        if ( $this->filesystem->exists( $this->files['env'] ) ) {
-            $this->filesystem->appendToFile( $this->files['env'], "\n" . self::saltContent( $salts ) );
-            $output->writeln( '<info>Salts added to env </info>' );
-        } else {
-            $this->filesystem->dumpFile( $this->files['env'], self::saltContent( $salts ) );
-            $output->writeln( '<info>Salts saved to new env file.</info>' );
-        }
-
-        // Adds login secret.
-        $this->filesystem->appendToFile( $this->files['env'], self::autoLoginSecret() );
 
         return Command::SUCCESS;
     }
