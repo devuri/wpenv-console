@@ -130,18 +130,18 @@ trait Env
 		END;
     }
 
-	protected function envFileContent(): string
+    protected function envFileContent(): string
     {
         $auto_login_secret = bin2hex( random_bytes( 32 ) );
 
         $app_tenant_secret = bin2hex( random_bytes( 32 ) );
 
-		$salt = (object) $this->saltToArray();
+        $salt = (object) $this->saltToArray();
 
-		$home_url = 'http://example.com';
-		$site_url = '${WP_HOME}/wp';
-		$dbprefix = strtolower( 'wp_' . self::rand_str( 8 ) . '_' );
-		$app_public_key = self::uuid();
+        $home_url       = 'http://example.com';
+        $site_url       = '${WP_HOME}/wp';
+        $dbprefix       = strtolower( 'wp_' . self::rand_str( 8 ) . '_' );
+        $app_public_key = self::uuid();
 
         return <<<END
 		WP_HOME='$home_url'

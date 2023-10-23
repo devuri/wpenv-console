@@ -3,7 +3,6 @@
 namespace Urisoft\Env\Console;
 
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Filesystem\Filesystem;
@@ -41,8 +40,8 @@ class SetupCommand extends Command
     {
         if ( ! $this->filesystem->exists( $this->files['env'] ) ) {
             $output->writeln( '<comment>.env file does not exist. we will create the file.</comment>' );
-			$this->filesystem->dumpFile( $this->files['env'], $this->envFileContent() );
-			$output->writeln( '<info>Remember to update .env with the application domain and remove example.com.</info>' );
+            $this->filesystem->dumpFile( $this->files['env'], $this->envFileContent() );
+            $output->writeln( '<info>Remember to update .env with the application domain and remove example.com.</info>' );
         }
 
         return Command::SUCCESS;
