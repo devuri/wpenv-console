@@ -98,12 +98,12 @@ php bin/nino serve [--port=<port_number>] [--host=<host_name>] [--docroot=<docum
 
 ### Setup
 
-Search and replace domain in multiple files.
+Creates a fresh .env file .
 
 **Usage:**
 
 ```bash
-php bin/nino setup <replacement_domain>
+php bin/nino setup
 ```
 
 ### SSL
