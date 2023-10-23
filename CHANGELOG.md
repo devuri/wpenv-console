@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.2.0](https://github.com/devuri/wpenv-console/compare/v0.1.6...v0.2.0) (2023-10-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* creates .env file with `setup` command
+
+### Features
+
+* creates .env file with `setup` command ([51d785e](https://github.com/devuri/wpenv-console/commit/51d785e8b3c5d32acd8a9cbb32d8380a44332a80))
+
+
+### Miscellaneous Chores
+
+* build ([68bfd81](https://github.com/devuri/wpenv-console/commit/68bfd81488ae6611510d113ed6e99829131e6aac))
+* build ([87210a3](https://github.com/devuri/wpenv-console/commit/87210a3ad57bd1c15221b3246349bb95d04300aa))
+
 ## [0.1.6](https://github.com/devuri/wpenv-console/compare/v0.1.5...v0.1.6) (2023-09-24)
 
 
