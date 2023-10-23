@@ -10,7 +10,7 @@ To run the `Setup Command`, use the following command:
 php nino setup
 ```
 
-Replace `your-new-domain.com` with the domain you want to set up. The command will search for specific configuration files and update them with the new domain.
+Replace `example.com` in .env with the domain you want to set up.
 
 ## Configuration Files
 
