@@ -6,6 +6,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Filesystem\Filesystem;
+use Urisoft\EncryptionKey;
 use Urisoft\Env\Console\Traits\Env;
 use Urisoft\Env\Console\Traits\Generate;
 
@@ -23,6 +24,7 @@ class SetupCommand extends Command
         $this->root_dir_path = $root_dir_path;
         $this->files         = [
             'env'      => $root_dir_path . '/.env',
+            'secret'   => $root_dir_path . '/.secret',
             'htaccess' => $root_dir_path . '/public/.htaccess',
             'robots'   => $root_dir_path . '/public/robots.txt',
         ];
@@ -44,10 +46,18 @@ class SetupCommand extends Command
             $output->writeln( '<info>Remember to update .env with the application domain and remove example.com.</info>' );
         }
 
+        if ( ! $this->filesystem->exists( $this->files['secret'] ) ) {
+            $output->writeln( '<comment>.secret file does not exist. we will create .secret file.</comment>' );
+
+            $secretkey = EncryptionKey::generate_key();
+
+            $this->filesystem->dumpFile( $this->files['secret'], $secretkey );
+        }
+
         return Command::SUCCESS;
     }
 
-	protected function envFileContent(): string
+    protected function envFileContent(): string
     {
         $auto_login_secret = bin2hex( random_bytes( 32 ) );
 

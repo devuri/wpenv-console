@@ -24,7 +24,7 @@
         "php": "^7.4 || ^8.0 || ^8.1",
         "aws/aws-sdk-php": "^3.275",
         "devuri/dot-access": "^0.2.2",
-        "devuri/encryption": "^0.1",
+        "devuri/encryption": "^0.2",
         "devuri/secure-password": "^0.1",
         "devuri/uuid-generator": "^0.0.1",
         "symfony/console": "5.4.*",
