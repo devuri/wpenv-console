@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/devuri/wpenv-console/compare/v0.2.0...v0.2.1) (2023-10-27)
+
+
+### Features
+
+* can now generate `.secret` file on `setup` command ([f010ebc](https://github.com/devuri/wpenv-console/commit/f010ebcce349e962db8585f16c6f8a7eed3eb3a3))
+
 ## [0.2.0](https://github.com/devuri/wpenv-console/compare/v0.1.6...v0.2.0) (2023-10-23)
 
 
