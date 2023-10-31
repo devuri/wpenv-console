@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.3.0](https://github.com/devuri/wpenv-console/compare/v0.2.1...v0.3.0) (2023-10-31)
+
+
+### ⚠ BREAKING CHANGES
+
+* upgrade to 0.3 `devuri/encryption`
+
+### Bug Fixes
+
+* upgrade to 0.3 `devuri/encryption` ([ccc6421](https://github.com/devuri/wpenv-console/commit/ccc642189f3d915e8238c45589d2303b78ae56bb))
+
+
+### Miscellaneous Chores
+
+* build ([44542d1](https://github.com/devuri/wpenv-console/commit/44542d1ac1dffc61edd505a1c3415f4fe18c4acd))
+
 ## [0.2.1](https://github.com/devuri/wpenv-console/compare/v0.2.0...v0.2.1) (2023-10-27)
 
 
