@@ -12,18 +12,18 @@ if ( ! \function_exists( 'wpenv' ) ) {
      */
     function wpenv( string $name, $default = null, bool $strtolower = false )
     {
-		if ( isset( $_ENV[ $name ] ) ) {
-			$env_value = $_ENV[ $name ];
+        if ( isset( $_ENV[ $name ] ) ) {
+            $env_value = $_ENV[ $name ];
         } else {
-			$env_value = null;
-		}
+            $env_value = null;
+        }
 
-		if( is_null( $env_value ) ){
-			return $default;
-		}
+        if ( \is_null( $env_value ) ) {
+            return $default;
+        }
 
         if ( is_numeric( $env_value ) && \intval( $_ENV[ $name ] ) ) {
-            return (int)  $env_value;
+            return (int) $env_value;
         }
 
         if ( \in_array( $env_value, [ 'True', 'true', 'TRUE' ], true ) ) {
