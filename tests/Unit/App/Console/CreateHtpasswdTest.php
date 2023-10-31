@@ -5,7 +5,7 @@ namespace Tests\Unit\App\Console;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
-use Symfony\Component\Filesystem\Filesystem;
+use Urisoft\Filesystem;
 use Urisoft\Env\Console\CreateHtpasswd;
 
 /**
