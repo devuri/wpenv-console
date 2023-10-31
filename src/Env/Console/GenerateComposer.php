@@ -5,7 +5,7 @@ namespace Urisoft\Env\Console;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Filesystem\Filesystem;
+use Urisoft\Filesystem;
 use Symfony\Component\Process\Process;
 use Urisoft\Env\Console\Traits\Env;
 

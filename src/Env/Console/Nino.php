@@ -5,7 +5,7 @@ namespace Urisoft\Env\Console;
 use Exception;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Filesystem\Filesystem;
+use Urisoft\Filesystem;
 
 /**
  * Nino.
