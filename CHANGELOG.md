@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/devuri/wpenv-console/compare/v0.3.0...v0.3.1) (2023-10-31)
+
+
+### Bug Fixes
+
+* update use Urisoft\Filesystem ([5e335a4](https://github.com/devuri/wpenv-console/commit/5e335a48969d593701de8f76509209c3ef71bc52))
+
 ## [0.3.0](https://github.com/devuri/wpenv-console/compare/v0.2.1...v0.3.0) (2023-10-31)
 
 
