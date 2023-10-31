@@ -324,7 +324,6 @@ class BackupCommand extends Command
         // https://symfony.com/doc/current/components/process.html#getting-real-time-process-output
         $process->run(
             function ( $type, $buffer ): void {
-
             }
         );
 
