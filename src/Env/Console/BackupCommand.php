@@ -8,11 +8,11 @@ use InvalidArgumentException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Urisoft\Filesystem;
 use Symfony\Component\Process\Process;
 use Urisoft\Encryption;
 use Urisoft\Env\Console\Traits\Env;
 use Urisoft\Env\Console\Traits\Generate;
+use Urisoft\Filesystem;
 use ZipArchive;
 
 class BackupCommand extends Command
@@ -155,6 +155,10 @@ class BackupCommand extends Command
                 ]
             )
         );
+
+        if ( ! class_exists( 'ZipArchive' ) ) {
+            throw new Exception( 'This command requires the Zip PHP extension. Install it and try again.' );
+        }
 
         // Create a ZIP archive of the site directory.
         $zip = new ZipArchive();
