@@ -5,10 +5,10 @@ namespace Urisoft\Env\Console;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Urisoft\Filesystem;
 use Urisoft\EncryptionKey;
 use Urisoft\Env\Console\Traits\Env;
 use Urisoft\Env\Console\Traits\Generate;
+use Urisoft\Filesystem;
 
 class SetupCommand extends Command
 {
@@ -73,6 +73,8 @@ class SetupCommand extends Command
         return <<<END
 		WP_HOME='$home_url'
 		WP_SITEURL="$site_url"
+		WP_ENVIRONMENT_TYPE='debug'
+		SUDO_ADMIN='1'
 
 		APP_TENANT_ID=null
 		IS_MULTI_TENANT_APP=false
@@ -82,26 +84,19 @@ class SetupCommand extends Command
 		BASIC_AUTH_PASSWORD='demo'
 
 		USE_APP_THEME=false
-		WP_ENVIRONMENT_TYPE='debug'
 		BACKUP_PLUGINS=false
 
-		SEND_EMAIL_CHANGE_EMAIL=false
-		SENDGRID_API_KEY=''
-		SUDO_ADMIN='1'
-
-		WPENV_AUTO_LOGIN_SECRET_KEY='$auto_login_secret'
-		WEB_APP_PUBLIC_KEY=$app_public_key
+		DISABLE_WP_APPLICATION_PASSWORDS=true
 		SEND_EMAIL_CHANGE_EMAIL=false
 
 		# Premium
+		SENDGRID_API_KEY=''
 		ELEMENTOR_PRO_LICENSE=''
 		AVADAKEY=''
-		BACKUP_PLUGINS=false
 
 		MEMORY_LIMIT='256M'
 		MAX_MEMORY_LIMIT='256M'
 
-		DISABLE_WP_APPLICATION_PASSWORDS=true
 		FORCE_SSL_ADMIN=false
 		FORCE_SSL_LOGIN=false
 
@@ -115,7 +110,7 @@ class SetupCommand extends Command
 		S3_BACKUP_DIR=null
 		DELETE_LOCAL_S3BACKUP=false
 
-		DB_NAME=localdb
+		DB_NAME=local
 		DB_USER=root
 		DB_PASSWORD=password
 		DB_HOST=localhost
@@ -129,6 +124,9 @@ class SetupCommand extends Command
 		SECURE_AUTH_SALT='$salt->SECURE_AUTH_SALT'
 		LOGGED_IN_SALT='$salt->LOGGED_IN_SALT'
 		NONCE_SALT='$salt->NONCE_SALT'
+
+		WPENV_AUTO_LOGIN_SECRET_KEY='$auto_login_secret'
+		WEB_APP_PUBLIC_KEY=$app_public_key
 
 		END;
     }
