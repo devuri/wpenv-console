@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.3.3](https://github.com/devuri/wpenv-console/compare/v0.3.2...v0.3.3) (2023-11-02)
+
+
+### Bug Fixes
+
+* make sure `ZipArchive` is available ([18bdec0](https://github.com/devuri/wpenv-console/commit/18bdec08a6f491013e29cff5ca3fe554a9b1b587))
+* update env file output ([b2c9937](https://github.com/devuri/wpenv-console/commit/b2c9937a1cbefaa34bb9c3097e61f81dfdadd9d3))
+
+
+### Miscellaneous Chores
+
+* build ([118a7ed](https://github.com/devuri/wpenv-console/commit/118a7ed0ef0f9998158b2d7a642d20f68143a62b))
+* build ([dd58b77](https://github.com/devuri/wpenv-console/commit/dd58b77f91b4e32a570480cd33bb6431f3a0588f))
+
 ## [0.3.2](https://github.com/devuri/wpenv-console/compare/v0.3.1...v0.3.2) (2023-10-31)
 
 
