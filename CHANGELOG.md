@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.4](https://github.com/devuri/wpenv-console/compare/v0.3.3...v0.3.4) (2023-11-08)
+
+
+### Bug Fixes
+
+* fix env files also can ow use all files without `dot` ([55f030f](https://github.com/devuri/wpenv-console/commit/55f030fb811e30a33525cbaf11b8c4e016c68c35))
+
 ## [0.3.3](https://github.com/devuri/wpenv-console/compare/v0.3.2...v0.3.3) (2023-11-02)
 
 
