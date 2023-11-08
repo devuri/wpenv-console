@@ -100,6 +100,12 @@ class LoginCommand extends Command
             $root_dir_path,
             [
                 'env',
+                'env.secure',
+                'env.prod',
+                'env.staging',
+                'env.dev',
+                'env.debug',
+                'env.local',
                 '.env',
                 '.env.secure',
                 '.env.prod',

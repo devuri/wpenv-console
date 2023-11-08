@@ -73,32 +73,33 @@ class SetupCommand extends Command
         return <<<END
 		WP_HOME='$home_url'
 		WP_SITEURL="$site_url"
+
 		WP_ENVIRONMENT_TYPE='debug'
+		DISABLE_WP_APPLICATION_PASSWORDS=true
 		SUDO_ADMIN='1'
 
 		APP_TENANT_ID=null
 		IS_MULTI_TENANT_APP=false
-		APP_TENANT_SECRET='$app_tenant_secret'
 
 		BASIC_AUTH_USER='admin'
 		BASIC_AUTH_PASSWORD='demo'
 
-		USE_APP_THEME=false
-		BACKUP_PLUGINS=false
-
-		DISABLE_WP_APPLICATION_PASSWORDS=true
+		# Email
 		SEND_EMAIL_CHANGE_EMAIL=false
+		SENDGRID_API_KEY=''
 
 		# Premium
-		SENDGRID_API_KEY=''
 		ELEMENTOR_PRO_LICENSE=''
-		AVADAKEY=''
+		ELEMENTOR_AUTO_ACTIVATION=true
 
 		MEMORY_LIMIT='256M'
 		MAX_MEMORY_LIMIT='256M'
 
 		FORCE_SSL_ADMIN=false
 		FORCE_SSL_LOGIN=false
+
+		USE_APP_THEME=false
+		BACKUP_PLUGINS=false
 
 		# s3backup
 		ENABLE_S3_BACKUP=false
@@ -127,6 +128,7 @@ class SetupCommand extends Command
 
 		WPENV_AUTO_LOGIN_SECRET_KEY='$auto_login_secret'
 		WEB_APP_PUBLIC_KEY=$app_public_key
+		APP_TENANT_SECRET='$app_tenant_secret'
 
 		END;
     }
