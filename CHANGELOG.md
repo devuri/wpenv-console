@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.3.5](https://github.com/devuri/wpenv-console/compare/v0.3.4...v0.3.5) (2023-11-09)
+
+
+### Bug Fixes
+
+* load env vars from trait ([c9b243c](https://github.com/devuri/wpenv-console/commit/c9b243c2d1d80cf222e8c2367a4a52fee3363fc8))
+
+
+### Miscellaneous Chores
+
+* build ([bb455a2](https://github.com/devuri/wpenv-console/commit/bb455a2cb3739d4b9df8947f7a2974d1dfef818d))
+* docs build ([7550005](https://github.com/devuri/wpenv-console/commit/755000598ca648167e78091eeb4fe908a9f298fe))
+
 ## [0.3.4](https://github.com/devuri/wpenv-console/compare/v0.3.3...v0.3.4) (2023-11-08)
 
 
