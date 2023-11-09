@@ -2,7 +2,6 @@
 
 namespace Urisoft\Env\Console;
 
-use Dotenv\Dotenv;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -32,20 +31,7 @@ class DatabaseBackup extends Command
         $this->root_dir_path = $root_dir_path;
 
         // load env
-        $dotenv = Dotenv::createImmutable(
-            $this->root_dir_path,
-            [
-                'env',
-                '.env',
-                '.env.secure',
-                '.env.prod',
-                '.env.staging',
-                '.env.dev',
-                '.env.debug',
-                '.env.local',
-            ]
-        );
-        $dotenv->load();
+        $this->load_dotenv( $this->root_dir_path );
 
         parent::__construct();
     }

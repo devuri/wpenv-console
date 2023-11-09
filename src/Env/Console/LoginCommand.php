@@ -2,7 +2,6 @@
 
 namespace Urisoft\Env\Console;
 
-use Dotenv\Dotenv;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -85,36 +84,5 @@ class LoginCommand extends Command
         $signature = hash_hmac( 'sha256', $http_query, $secretKey );
 
         return wpenv( 'WP_HOME' ) . '?' . $http_query . '&sig=' . base64_encode( $signature );
-    }
-
-    /**
-     * Load the $_ENV.
-     *
-     * @param string $root_dir_path
-     *
-     * @return void
-     */
-    private function load_dotenv( string $root_dir_path ): void
-    {
-        $dotenv = Dotenv::createImmutable(
-            $root_dir_path,
-            [
-                'env',
-                'env.secure',
-                'env.prod',
-                'env.staging',
-                'env.dev',
-                'env.debug',
-                'env.local',
-                '.env',
-                '.env.secure',
-                '.env.prod',
-                '.env.staging',
-                '.env.dev',
-                '.env.debug',
-                '.env.local',
-            ]
-        );
-        $dotenv->load();
     }
 }

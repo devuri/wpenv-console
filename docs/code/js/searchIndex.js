@@ -41,11 +41,6 @@ Search.appendIndex(
             "summary": "The\u0020backup\u0020directory\u0020in\u0020s3\u0020bucket.",
             "url": "classes/Urisoft-Env-Console-BackupCommand.html#method_wpbucket_dir"
         },                {
-            "fqsen": "\\Urisoft\\Env\\Console\\BackupCommand\u003A\u003Aload_dotenv\u0028\u0029",
-            "name": "load_dotenv",
-            "summary": "Load\u0020the\u0020\u0024_ENV.",
-            "url": "classes/Urisoft-Env-Console-BackupCommand.html#method_load_dotenv"
-        },                {
             "fqsen": "\\Urisoft\\Env\\Console\\BackupCommand\u003A\u003Aadd_directory_zip\u0028\u0029",
             "name": "add_directory_zip",
             "summary": "Add\u0020directory\u0020and\u0020its\u0020files\u0020to\u0020a\u0020ZIP\u0020archive.",
@@ -160,11 +155,6 @@ Search.appendIndex(
             "name": "set_maintenance_mode",
             "summary": "",
             "url": "classes/Urisoft-Env-Console-ConfigCommand.html#method_set_maintenance_mode"
-        },                {
-            "fqsen": "\\Urisoft\\Env\\Console\\ConfigCommand\u003A\u003Aload_dotenv\u0028\u0029",
-            "name": "load_dotenv",
-            "summary": "Load\u0020the\u0020\u0024_ENV.",
-            "url": "classes/Urisoft-Env-Console-ConfigCommand.html#method_load_dotenv"
         },                {
             "fqsen": "\\Urisoft\\Env\\Console\\ConfigCommand\u003A\u003A\u0024defaultName",
             "name": "defaultName",
@@ -370,11 +360,6 @@ Search.appendIndex(
             "name": "login",
             "summary": "WordPress\u0020Quick\u0020Login.",
             "url": "classes/Urisoft-Env-Console-LoginCommand.html#method_login"
-        },                {
-            "fqsen": "\\Urisoft\\Env\\Console\\LoginCommand\u003A\u003Aload_dotenv\u0028\u0029",
-            "name": "load_dotenv",
-            "summary": "Load\u0020the\u0020\u0024_ENV.",
-            "url": "classes/Urisoft-Env-Console-LoginCommand.html#method_load_dotenv"
         },                {
             "fqsen": "\\Urisoft\\Env\\Console\\LoginCommand\u003A\u003A\u0024defaultName",
             "name": "defaultName",
@@ -630,6 +615,11 @@ Search.appendIndex(
             "name": "autoLoginSecret",
             "summary": "",
             "url": "classes/Urisoft-Env-Console-Traits-Env.html#method_autoLoginSecret"
+        },                {
+            "fqsen": "\\Urisoft\\Env\\Console\\Traits\\Env\u003A\u003Aload_dotenv\u0028\u0029",
+            "name": "load_dotenv",
+            "summary": "Load\u0020the\u0020\u0024_ENV.",
+            "url": "classes/Urisoft-Env-Console-Traits-Env.html#method_load_dotenv"
         },                {
             "fqsen": "\\Urisoft\\Env\\Console\\Traits\\Env\u003A\u003A\u0024root_dir_path",
             "name": "root_dir_path",

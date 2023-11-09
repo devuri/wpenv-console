@@ -2,7 +2,6 @@
 
 namespace Urisoft\Env\Console;
 
-use Dotenv\Dotenv;
 use Exception;
 use InvalidArgumentException;
 use Symfony\Component\Console\Command\Command;
@@ -219,31 +218,6 @@ class BackupCommand extends Command
         }
 
         return 'wp/' . $this->s3wp_dir . '/' . self::getdate( 'Y' ) . '/' . gmdate( 'F' ) . '/' . self::getdate( 'd-F-Y' ) . '/';
-    }
-
-    /**
-     * Load the $_ENV.
-     *
-     * @param string $root_dir_path
-     *
-     * @return void
-     */
-    private function load_dotenv( string $root_dir_path ): void
-    {
-        $dotenv = Dotenv::createImmutable(
-            $root_dir_path,
-            [
-                'env',
-                '.env',
-                '.env.secure',
-                '.env.prod',
-                '.env.staging',
-                '.env.dev',
-                '.env.debug',
-                '.env.local',
-            ]
-        );
-        $dotenv->load();
     }
 
     /**
