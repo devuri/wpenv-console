@@ -168,30 +168,4 @@ class ConfigCommand extends Command
             $this->filesystem->dumpFile( $this->root_dir_path . '/public/.maintenance', 'Maintenance mode' );
         }
     }
-
-    /**
-     * Load the $_ENV.
-     *
-     * @param string $root_dir_path
-     *
-     * @return void
-     */
-    private function load_dotenv( string $root_dir_path ): void
-    {
-        $dotenv = Dotenv::createImmutable(
-            $root_dir_path,
-            [
-                'env',
-                '.env',
-                '.env.secure',
-                '.env.prod',
-                '.env.staging',
-                '.env.dev',
-                '.env.debug',
-                '.env.local',
-            ]
-        );
-
-        $dotenv->load();
-    }
 }

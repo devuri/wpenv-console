@@ -222,31 +222,6 @@ class BackupCommand extends Command
     }
 
     /**
-     * Load the $_ENV.
-     *
-     * @param string $root_dir_path
-     *
-     * @return void
-     */
-    private function load_dotenv( string $root_dir_path ): void
-    {
-        $dotenv = Dotenv::createImmutable(
-            $root_dir_path,
-            [
-                'env',
-                '.env',
-                '.env.secure',
-                '.env.prod',
-                '.env.staging',
-                '.env.dev',
-                '.env.debug',
-                '.env.local',
-            ]
-        );
-        $dotenv->load();
-    }
-
-    /**
      * Add directory and its files to a ZIP archive.
      *
      * @param string     $directory

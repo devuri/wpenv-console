@@ -129,4 +129,35 @@ trait Env
 		WPENV_AUTO_LOGIN_SECRET_KEY='$secret_key'
 		END;
     }
+
+	/**
+     * Load the $_ENV.
+     *
+     * @param string $root_dir_path
+     *
+     * @return void
+     */
+    protected function load_dotenv( string $root_dir_path ): void
+    {
+        $dotenv = Dotenv::createImmutable(
+            $root_dir_path,
+            [
+                'env',
+                'env.secure',
+                'env.prod',
+                'env.staging',
+                'env.dev',
+                'env.debug',
+                'env.local',
+                '.env',
+                '.env.secure',
+                '.env.prod',
+                '.env.staging',
+                '.env.dev',
+                '.env.debug',
+                '.env.local',
+            ]
+        );
+        $dotenv->load();
+    }
 }
