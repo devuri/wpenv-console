@@ -2,7 +2,6 @@
 
 namespace Urisoft\Env\Console;
 
-use Dotenv\Dotenv;
 use InvalidArgumentException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;

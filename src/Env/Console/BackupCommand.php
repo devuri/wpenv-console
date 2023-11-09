@@ -2,7 +2,6 @@
 
 namespace Urisoft\Env\Console;
 
-use Dotenv\Dotenv;
 use Exception;
 use InvalidArgumentException;
 use Symfony\Component\Console\Command\Command;

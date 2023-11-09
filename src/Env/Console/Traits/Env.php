@@ -2,6 +2,8 @@
 
 namespace Urisoft\Env\Console\Traits;
 
+use Dotenv\Dotenv;
+
 trait Env
 {
     protected $root_dir_path = null;
@@ -130,7 +132,7 @@ trait Env
 		END;
     }
 
-	/**
+    /**
      * Load the $_ENV.
      *
      * @param string $root_dir_path
