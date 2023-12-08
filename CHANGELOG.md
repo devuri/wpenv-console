@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.6](https://github.com/devuri/wpenv-console/compare/v0.3.5...v0.3.6) (2023-12-08)
+
+
+### Bug Fixes
+
+* fix env file loading order ([b0e9777](https://github.com/devuri/wpenv-console/commit/b0e97772eb2c4eeff5dac1956bd5ad28ed2effa2))
+
 ## [0.3.5](https://github.com/devuri/wpenv-console/compare/v0.3.4...v0.3.5) (2023-11-09)
 
 
