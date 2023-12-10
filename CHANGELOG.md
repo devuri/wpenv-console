@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.7](https://github.com/devuri/wpenv-console/compare/v0.3.6...v0.3.7) (2023-12-10)
+
+
+### Bug Fixes
+
+* check env loader before we load it, and handle gracefully ([8c4e4a5](https://github.com/devuri/wpenv-console/commit/8c4e4a5050967796351eee088bff25a173b46f18))
+
+
+### Miscellaneous Chores
+
+* build ([1bb7700](https://github.com/devuri/wpenv-console/commit/1bb7700f01f42f484e2ab2ac27571058a45020e4))
+
 ## [0.3.6](https://github.com/devuri/wpenv-console/compare/v0.3.5...v0.3.6) (2023-12-08)
 
 
