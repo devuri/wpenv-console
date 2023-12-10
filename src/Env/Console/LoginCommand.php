@@ -24,7 +24,6 @@ class LoginCommand extends Command
         parent::__construct();
         $this->filesystem    = $filesystem;
         $this->root_dir_path = $root_dir_path;
-        $this->load_dotenv( $this->root_dir_path );
     }
 
     protected function configure(): void
@@ -42,6 +41,14 @@ class LoginCommand extends Command
     protected function execute( InputInterface $input, OutputInterface $output )
     {
         $io = new SymfonyStyle( $input, $output );
+
+        try {
+            $this->load_dotenv( $this->root_dir_path );
+        } catch ( Exception $e ) {
+            $io->warning( $e->getMessage() );
+
+            return Command::FAILURE;
+        }
 
         $username = $input->getOption( 'user' );
 
