@@ -53,7 +53,11 @@ class Nino
         $this->add_command( new MakeCommand( $this->root_dir, new Filesystem() ) );
         $this->add_command( new ConfigCommand( $this->root_dir, new Filesystem() ) );
 
-        $this->nino->run();
+        try {
+            $this->nino->run();
+        } catch ( Exception $e ) {
+            exit( $e->getMessage() );
+        }
     }
 
     /**

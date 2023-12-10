@@ -3,6 +3,7 @@
 namespace Urisoft\Env\Console\Traits;
 
 use Dotenv\Dotenv;
+use Exception;
 
 trait Env
 {
@@ -141,19 +142,33 @@ trait Env
      */
     protected function load_dotenv( string $root_dir_path ): void
     {
+        $env_files = [
+            'env',
+            '.env',
+            '.env.secure',
+            '.env.prod',
+            '.env.staging',
+            '.env.dev',
+            '.env.debug',
+            '.env.local',
+            // 'env.local',
+        ];
+
         $dotenv = Dotenv::createImmutable(
             $root_dir_path,
-            [
-				'env',
-				'.env',
-                '.env.secure',
-                '.env.prod',
-                '.env.staging',
-                '.env.dev',
-                '.env.debug',
-                '.env.local',
-            ]
+            $env_files
         );
+
+        foreach ( $env_files as $key => $file ) {
+            if ( ! file_exists( $root_dir_path . '/' . $file ) ) {
+                unset( $env_files[ $key ] );
+            }
+        }
+
+        if ( empty( $env_files ) ) {
+            throw new Exception( 'Invalid file path for env file' );
+        }
+
         $dotenv->load();
     }
 }

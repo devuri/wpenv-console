@@ -5,10 +5,12 @@ namespace Urisoft\Env\Console;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Process\Process;
 use Urisoft\Env\Console\Traits\Env;
 use Urisoft\Env\Console\Traits\Generate;
 use Urisoft\Filesystem;
+use Exception;
 
 class DatabaseBackup extends Command
 {
@@ -30,9 +32,6 @@ class DatabaseBackup extends Command
         $this->filesystem    = $filesystem;
         $this->root_dir_path = $root_dir_path;
 
-        // load env
-        $this->load_dotenv( $this->root_dir_path );
-
         parent::__construct();
     }
 
@@ -45,6 +44,16 @@ class DatabaseBackup extends Command
 
     protected function execute( InputInterface $input, OutputInterface $output ): ?int
     {
+        $io = new SymfonyStyle( $input, $output );
+
+        try {
+            $this->load_dotenv( $this->root_dir_path );
+        } catch ( Exception $e ) {
+            $io->warning( $e->getMessage() );
+
+            return Command::FAILURE;
+        }
+
         $backup = [
             'db_name'     => wpenv( 'DB_NAME' ),
             'db_user'     => wpenv( 'DB_USER' ),

@@ -13,6 +13,7 @@ use Urisoft\EncryptionKey;
 use Urisoft\Env\Console\Traits\Env;
 use Urisoft\Env\Console\Traits\Generate;
 use Urisoft\Filesystem;
+use Exception;
 
 class ConfigCommand extends Command
 {
@@ -28,7 +29,6 @@ class ConfigCommand extends Command
         parent::__construct();
         $this->filesystem    = $filesystem;
         $this->root_dir_path = $root_dir_path;
-        $this->load_dotenv( $this->root_dir_path );
 
         try {
             $this->encryption = new Encryption( $this->root_dir_path, $this->filesystem );
@@ -49,6 +49,14 @@ class ConfigCommand extends Command
     protected function execute( InputInterface $input, OutputInterface $output ): int
     {
         $io = new SymfonyStyle( $input, $output );
+
+        try {
+            $this->load_dotenv( $this->root_dir_path );
+        } catch ( Exception $e ) {
+            $io->warning( $e->getMessage() );
+
+            return Command::FAILURE;
+        }
 
         $config_task = $input->getArgument( '_task' );
 

@@ -44,8 +44,7 @@ class BackupCommand extends Command
     {
         $this->filesystem    = $filesystem;
         $this->root_dir_path = $root_dir_path;
-        $this->load_dotenv( $this->root_dir_path );
-        $this->snapshot_dir = $this->root_dir_path . '/.snapshot/' . gmdate( 'Y' ) . '/' . gmdate( 'F' );
+        $this->snapshot_dir  = $this->root_dir_path . '/.snapshot/' . gmdate( 'Y' ) . '/' . gmdate( 'F' );
 
         // setup Encryption
         try {
@@ -53,32 +52,6 @@ class BackupCommand extends Command
         } catch ( InvalidArgumentException $e ) {
             $this->encrypter = null;
         }
-
-        // usually the sitename or alphanum siteID.
-        $this->s3wp_dir = wpenv( 'S3_BACKUP_DIR', $this->get_domain( wpenv( 'WP_HOME' ) ) );
-
-        // backup directory.
-        $this->backup_file = self::unique_filename( '.zip', $this->s3wp_dir . '_snap' );
-        $this->backup_time = time();
-        $this->backup_dir  = $this->snapshot_dir . '/' . self::getdate( 'd-F-Y' ) . '/' . $this->backup_time;
-
-        // determines if we include plugins (true||false).
-        $this->backup_plugins = wpenv( 'BACKUP_PLUGINS' );
-
-        // zip filename
-        $this->backup_zip = $this->backup_dir . '/' . $this->backup_file;
-
-        // maybe encrypted backup.
-        $this->encrypted_backup = $this->backup_zip . '.encrypted';
-
-        // setup s3
-        $this->s3uploader = new S3Uploader(
-            wpenv( 'S3_BACKUP_KEY', '' ),
-            wpenv( 'S3_BACKUP_SECRET', '' ),
-            wpenv( 'S3_BACKUP_BUCKET', 'wp-s3snaps' ),
-            // Specify the region where your S3 bucket is located
-            wpenv( 'S3_BACKUP_REGION', 'us-west-1' ),
-        );
 
         parent::__construct();
     }
@@ -131,6 +104,8 @@ class BackupCommand extends Command
      */
     protected function execute( InputInterface $input, OutputInterface $output )
     {
+        $this->setup_backup_env();
+
         // backup db
         $dbbackup = $this->create_sql_dump();
 
@@ -200,6 +175,46 @@ class BackupCommand extends Command
         }
 
         return $this->s3uploader->uploadFile( $this->backup_zip, $this->wpbucket_dir() . $this->backup_file );
+    }
+
+
+    private function setup_backup_env(): bool
+    {
+        try {
+            $this->load_dotenv( $this->root_dir_path );
+        } catch ( Exception $e ) {
+            dump( $e->getMessage() );
+
+            return false;
+        }
+
+        // usually the sitename or alphanum siteID.
+        $this->s3wp_dir = wpenv( 'S3_BACKUP_DIR', $this->get_domain( wpenv( 'WP_HOME' ) ) );
+
+        // backup directory.
+        $this->backup_file = self::unique_filename( '.zip', $this->s3wp_dir . '_snap' );
+        $this->backup_time = time();
+        $this->backup_dir  = $this->snapshot_dir . '/' . self::getdate( 'd-F-Y' ) . '/' . $this->backup_time;
+
+        // determines if we include plugins (true||false).
+        $this->backup_plugins = wpenv( 'BACKUP_PLUGINS' );
+
+        // zip filename
+        $this->backup_zip = $this->backup_dir . '/' . $this->backup_file;
+
+        // maybe encrypted backup.
+        $this->encrypted_backup = $this->backup_zip . '.encrypted';
+
+        // setup s3
+        $this->s3uploader = new S3Uploader(
+            wpenv( 'S3_BACKUP_KEY', '' ),
+            wpenv( 'S3_BACKUP_SECRET', '' ),
+            wpenv( 'S3_BACKUP_BUCKET', 'wp-s3snaps' ),
+            // Specify the region where your S3 bucket is located
+            wpenv( 'S3_BACKUP_REGION', 'us-west-1' ),
+        );
+
+        return true;
     }
 
     /**

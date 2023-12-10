@@ -36,6 +36,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Urisoft-Env-Console-BackupCommand.html#method_s3_upload_backup"
         },                {
+            "fqsen": "\\Urisoft\\Env\\Console\\BackupCommand\u003A\u003Asetup_backup_env\u0028\u0029",
+            "name": "setup_backup_env",
+            "summary": "",
+            "url": "classes/Urisoft-Env-Console-BackupCommand.html#method_setup_backup_env"
+        },                {
             "fqsen": "\\Urisoft\\Env\\Console\\BackupCommand\u003A\u003Awpbucket_dir\u0028\u0029",
             "name": "wpbucket_dir",
             "summary": "The\u0020backup\u0020directory\u0020in\u0020s3\u0020bucket.",
