@@ -10,6 +10,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use Urisoft\Env\Console\Traits\Env;
 use Urisoft\Env\Console\Traits\Generate;
 use Urisoft\Filesystem;
+use Exception;
 
 class LoginCommand extends Command
 {

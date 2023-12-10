@@ -13,6 +13,7 @@ use Urisoft\EncryptionKey;
 use Urisoft\Env\Console\Traits\Env;
 use Urisoft\Env\Console\Traits\Generate;
 use Urisoft\Filesystem;
+use Exception;
 
 class ConfigCommand extends Command
 {

@@ -10,6 +10,7 @@ use Symfony\Component\Process\Process;
 use Urisoft\Env\Console\Traits\Env;
 use Urisoft\Env\Console\Traits\Generate;
 use Urisoft\Filesystem;
+use Exception;
 
 class DatabaseBackup extends Command
 {
