@@ -641,6 +641,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Urisoft-Env-Console-Traits-Env.html#property_files"
         },                {
+            "fqsen": "\\Urisoft\\Env\\Console\\Traits\\Env\u003A\u003A\u0024site_port",
+            "name": "site_port",
+            "summary": "",
+            "url": "classes/Urisoft-Env-Console-Traits-Env.html#property_site_port"
+        },                {
             "fqsen": "\\Urisoft\\Env\\Console\\Traits\\Generate",
             "name": "Generate",
             "summary": "",
@@ -655,6 +660,11 @@ Search.appendIndex(
             "name": "four_letter_word",
             "summary": "Generate\u0020a\u0020random\u0020four\u002Dletter\u0020word.",
             "url": "classes/Urisoft-Env-Console-Traits-Generate.html#method_four_letter_word"
+        },                {
+            "fqsen": "\\Urisoft\\Env\\Console\\Traits\\Generate\u003A\u003Agenerate_random_port\u0028\u0029",
+            "name": "generate_random_port",
+            "summary": "Generates\u0020a\u0020random\u0020port\u0020number\u0020within\u0020a\u0020specified\u0020range.",
+            "url": "classes/Urisoft-Env-Console-Traits-Generate.html#method_generate_random_port"
         },                {
             "fqsen": "\\Urisoft\\Env\\Console\\Traits\\Generate\u003A\u003Acreate_uuid_key_file\u0028\u0029",
             "name": "create_uuid_key_file",

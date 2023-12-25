@@ -164,6 +164,13 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/Urisoft-Env-Console-Traits-Env.html#property_site_port">$site_port</a>
+    <span>
+                        &nbsp;: mixed            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/Urisoft-Env-Console-QuickInstaller.html#property_wp_dir_path">$wp_dir_path</a>
     <span>
                         &nbsp;: mixed            </span>
@@ -190,6 +197,13 @@
                                 &nbsp;: string    </span>
 </dt>
 <dd>Generate a random four-letter word.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Urisoft-Env-Console-Traits-Generate.html#method_generate_random_port">generate_random_port()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+<dd>Generates a random port number within a specified range.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Urisoft-Env-Console-Traits-Env.html#method_get_env_array">get_env_array()</a>
@@ -494,6 +508,40 @@ PHP&#039;s built-in random_int function.</dd>
             -protected
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="property_site_port">
+        $site_port
+        <a href="classes/Urisoft-Env-Console-Traits-Env.html#property_site_port" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Env/Console/Traits/Env.php"><a href="files/src-env-console-traits-env.html"><abbr title="src/Env/Console/Traits/Env.php">Env.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">13</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$site_port</span>
+     = <span class="phpdocumentor-signature__default-value">0</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="property_wp_dir_path">
         $wp_dir_path
         <a href="classes/Urisoft-Env-Console-QuickInstaller.html#property_wp_dir_path" class="headerlink"><i class="fas fa-link"></i></a>
@@ -595,7 +643,7 @@ PHP&#039;s built-in random_int function.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Env/Console/Traits/Generate.php"><a href="files/src-env-console-traits-generate.html"><abbr title="src/Env/Console/Traits/Generate.php">Generate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">39</span>
+    <span class="phpdocumentor-element-found-in__line">71</span>
 
     </aside>
 
@@ -656,6 +704,94 @@ PHP&#039;s built-in random_int function.</dd>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_generate_random_port">
+        generate_random_port()
+        <a href="classes/Urisoft-Env-Console-Traits-Generate.html#method_generate_random_port" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Env/Console/Traits/Generate.php"><a href="files/src-env-console-traits-generate.html"><abbr title="src/Env/Console/Traits/Generate.php">Generate.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">61</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Generates a random port number within a specified range.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">generate_random_port</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$min</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">5000</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$max</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">5100</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+        <section class="phpdocumentor-description"><p>This function generates a random port number using the mt_rand function.
+It accepts two optional parameters which define the minimum and maximum
+range for the random number. If the minimum value is greater than the maximum,
+the function swaps them to ensure the minimum is always less than the maximum.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$min</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">5000</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional. The minimum value in the range. Default is 10010.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$max</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">5100</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional. The maximum value in the range. Default is 10900.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Usage</p>
+<p>$randomPort1 = generateRandomPort(); // Default range
+$randomPort2 = generateRandomPort(10000, 10100); // Custom range</p>
+<p>echo &quot;Random Port Number (Default Range): &quot; . $randomPort1 . &quot;\n&quot;;
+echo &quot;Random Port Number (Custom Range): &quot; . $randomPort2;</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">int</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Returns a random port number within the specified range.</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_get_env_array">
         get_env_array()
         <a href="classes/Urisoft-Env-Console-Traits-Env.html#method_get_env_array" class="headerlink"><i class="fas fa-link"></i></a>
@@ -663,7 +799,7 @@ PHP&#039;s built-in random_int function.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Env/Console/Traits/Env.php"><a href="files/src-env-console-traits-env.html"><abbr title="src/Env/Console/Traits/Env.php">Env.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">19</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
@@ -804,7 +940,7 @@ PHP&#039;s built-in random_int function.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Env/Console/Traits/Generate.php"><a href="files/src-env-console-traits-generate.html"><abbr title="src/Env/Console/Traits/Generate.php">Generate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">87</span>
+    <span class="phpdocumentor-element-found-in__line">119</span>
 
     </aside>
 
@@ -892,7 +1028,7 @@ PHP&#039;s built-in random_int function.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Env/Console/Traits/Generate.php"><a href="files/src-env-console-traits-generate.html"><abbr title="src/Env/Console/Traits/Generate.php">Generate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">103</span>
+    <span class="phpdocumentor-element-found-in__line">135</span>
 
     </aside>
 
@@ -943,7 +1079,7 @@ using bin2hex to ensure it is suitable for use in various security-related scena
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Env/Console/Traits/Generate.php"><a href="files/src-env-console-traits-generate.html"><abbr title="src/Env/Console/Traits/Generate.php">Generate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">59</span>
+    <span class="phpdocumentor-element-found-in__line">91</span>
 
     </aside>
 
@@ -1041,7 +1177,7 @@ using bin2hex to ensure it is suitable for use in various security-related scena
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Env/Console/Traits/Env.php"><a href="files/src-env-console-traits-env.html"><abbr title="src/Env/Console/Traits/Env.php">Env.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">126</span>
+    <span class="phpdocumentor-element-found-in__line">127</span>
 
     </aside>
 
@@ -1074,7 +1210,7 @@ using bin2hex to ensure it is suitable for use in various security-related scena
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Env/Console/Traits/Generate.php"><a href="files/src-env-console-traits-generate.html"><abbr title="src/Env/Console/Traits/Generate.php">Generate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">138</span>
+    <span class="phpdocumentor-element-found-in__line">170</span>
 
     </aside>
 
@@ -1138,7 +1274,7 @@ using bin2hex to ensure it is suitable for use in various security-related scena
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Env/Console/Traits/Env.php"><a href="files/src-env-console-traits-env.html"><abbr title="src/Env/Console/Traits/Env.php">Env.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">77</span>
+    <span class="phpdocumentor-element-found-in__line">78</span>
 
     </aside>
 
@@ -1196,7 +1332,7 @@ using bin2hex to ensure it is suitable for use in various security-related scena
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Env/Console/Traits/Generate.php"><a href="files/src-env-console-traits-generate.html"><abbr title="src/Env/Console/Traits/Generate.php">Generate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">163</span>
+    <span class="phpdocumentor-element-found-in__line">195</span>
 
     </aside>
 
@@ -1249,7 +1385,7 @@ echo $websiteName;  // Output: staging-mycoolwebsite-io
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Env/Console/Traits/Env.php"><a href="files/src-env-console-traits-env.html"><abbr title="src/Env/Console/Traits/Env.php">Env.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">58</span>
+    <span class="phpdocumentor-element-found-in__line">59</span>
 
     </aside>
 
@@ -1292,7 +1428,7 @@ echo $websiteName;  // Output: staging-mycoolwebsite-io
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Env/Console/Traits/Generate.php"><a href="files/src-env-console-traits-generate.html"><abbr title="src/Env/Console/Traits/Generate.php">Generate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">194</span>
+    <span class="phpdocumentor-element-found-in__line">226</span>
 
     </aside>
 
@@ -1342,7 +1478,7 @@ echo $websiteName;  // Output: staging-mycoolwebsite-io
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Env/Console/Traits/Generate.php"><a href="files/src-env-console-traits-generate.html"><abbr title="src/Env/Console/Traits/Generate.php">Generate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">120</span>
+    <span class="phpdocumentor-element-found-in__line">152</span>
 
     </aside>
 
@@ -1402,7 +1538,7 @@ echo $websiteName;  // Output: staging-mycoolwebsite-io
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Env/Console/Traits/Env.php"><a href="files/src-env-console-traits-env.html"><abbr title="src/Env/Console/Traits/Env.php">Env.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">143</span>
+    <span class="phpdocumentor-element-found-in__line">144</span>
 
     </aside>
 
@@ -1445,7 +1581,7 @@ echo $websiteName;  // Output: staging-mycoolwebsite-io
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Env/Console/Traits/Generate.php"><a href="files/src-env-console-traits-generate.html"><abbr title="src/Env/Console/Traits/Generate.php">Generate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">115</span>
+    <span class="phpdocumentor-element-found-in__line">147</span>
 
     </aside>
 
@@ -1492,7 +1628,7 @@ echo $websiteName;  // Output: staging-mycoolwebsite-io
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Env/Console/Traits/Env.php"><a href="files/src-env-console-traits-env.html"><abbr title="src/Env/Console/Traits/Env.php">Env.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">110</span>
+    <span class="phpdocumentor-element-found-in__line">111</span>
 
     </aside>
 
@@ -1536,7 +1672,7 @@ echo $websiteName;  // Output: staging-mycoolwebsite-io
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Env/Console/Traits/Env.php"><a href="files/src-env-console-traits-env.html"><abbr title="src/Env/Console/Traits/Env.php">Env.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">90</span>
+    <span class="phpdocumentor-element-found-in__line">91</span>
 
     </aside>
 
@@ -1627,7 +1763,7 @@ echo $websiteName;  // Output: staging-mycoolwebsite-io
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Env/Console/Traits/Generate.php"><a href="files/src-env-console-traits-generate.html"><abbr title="src/Env/Console/Traits/Generate.php">Generate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">210</span>
+    <span class="phpdocumentor-element-found-in__line">242</span>
 
     </aside>
 
@@ -1675,7 +1811,7 @@ echo $websiteName;  // Output: staging-mycoolwebsite-io
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Env/Console/Traits/Generate.php"><a href="files/src-env-console-traits-generate.html"><abbr title="src/Env/Console/Traits/Generate.php">Generate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">222</span>
+    <span class="phpdocumentor-element-found-in__line">254</span>
 
     </aside>
 
