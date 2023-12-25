@@ -22,6 +22,7 @@ class SetupCommand extends Command
         parent::__construct();
         $this->filesystem    = $filesystem;
         $this->root_dir_path = $root_dir_path;
+		$this->site_port     = $this->generate_random_port();
         $this->files         = [
             'env'      => $root_dir_path . '/.env',
             'secret'   => $root_dir_path . '/.secret',
@@ -65,7 +66,7 @@ class SetupCommand extends Command
 
         $salt = (object) $this->saltToArray();
 
-        $home_url       = 'http://example.com';
+        $home_url       = "http://localhost:$this->site_port";
         $site_url       = '${WP_HOME}/wp';
         $dbprefix       = strtolower( 'wp_' . self::rand_str( 8 ) . '_' );
         $app_public_key = self::uuid();

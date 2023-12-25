@@ -35,6 +35,36 @@ trait Generate
         return $word;
     }
 
+	/**
+	 * Generates a random port number within a specified range.
+	 *
+	 * This function generates a random port number using the mt_rand function.
+	 * It accepts two optional parameters which define the minimum and maximum
+	 * range for the random number. If the minimum value is greater than the maximum,
+	 * the function swaps them to ensure the minimum is always less than the maximum.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param int $min Optional. The minimum value in the range. Default is 10010.
+	 * @param int $max Optional. The maximum value in the range. Default is 10900.
+	 * @return int Returns a random port number within the specified range.
+	 *
+	 * @example Usage
+	 *
+	 * $randomPort1 = generateRandomPort(); // Default range
+	 * $randomPort2 = generateRandomPort(10000, 10100); // Custom range
+	 *
+	 * echo "Random Port Number (Default Range): " . $randomPort1 . "\n";
+	 * echo "Random Port Number (Custom Range): " . $randomPort2;
+	 */
+	public function generate_random_port( $min = 5000, $max = 5100 )
+	{
+		if ($min > $max) {
+	        // Swap the values to ensure $min is always less than $max
+	        list($min, $max) = array($max, $min);
+	    }
+	    return mt_rand($min, $max);
+	}
 
     public function create_uuid_key_file()
     {
