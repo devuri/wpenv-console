@@ -2,6 +2,7 @@
 
 namespace Urisoft\Env\Console;
 
+use Exception;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -10,7 +11,6 @@ use Symfony\Component\Process\Process;
 use Urisoft\Env\Console\Traits\Env;
 use Urisoft\Env\Console\Traits\Generate;
 use Urisoft\Filesystem;
-use Exception;
 
 class DatabaseBackup extends Command
 {
