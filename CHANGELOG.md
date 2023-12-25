@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.3.8](https://github.com/devuri/wpenv-console/compare/v0.3.7...v0.3.8) (2023-12-25)
+
+
+### Features
+
+* adds  `generate_random_port()` port number 5000 and 5100 range. ([1115492](https://github.com/devuri/wpenv-console/commit/1115492d1e709987c3d72c162728e0accbd1311d))
+
+
+### Bug Fixes
+
+* build and composer update  CVE-2023-51651 aws/aws-sdk-php ([4550610](https://github.com/devuri/wpenv-console/commit/45506104473f5f33b1bd26117a2476854a0ff946))
+
+
+### Miscellaneous Chores
+
+* build ([f1966ca](https://github.com/devuri/wpenv-console/commit/f1966ca108da2ed11281a21cc58fa0ed571c42c9))
+
 ## [0.3.7](https://github.com/devuri/wpenv-console/compare/v0.3.6...v0.3.7) (2023-12-10)
 
 
