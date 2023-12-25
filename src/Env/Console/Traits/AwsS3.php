@@ -9,14 +9,14 @@ trait AwsS3
     /**
      * The AWS S3 client.
      *
-     * @var \Aws\S3\S3Client
+     * @var S3Client
      */
     protected $s3Client;
 
     /**
      * Get the S3 client.
      *
-     * @return \Aws\S3\S3Client
+     * @return S3Client
      */
     public function getAwsClient(): S3Client
     {

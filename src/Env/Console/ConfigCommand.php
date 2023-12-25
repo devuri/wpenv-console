@@ -2,6 +2,7 @@
 
 namespace Urisoft\Env\Console;
 
+use Exception;
 use InvalidArgumentException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -13,7 +14,6 @@ use Urisoft\EncryptionKey;
 use Urisoft\Env\Console\Traits\Env;
 use Urisoft\Env\Console\Traits\Generate;
 use Urisoft\Filesystem;
-use Exception;
 
 class ConfigCommand extends Command
 {

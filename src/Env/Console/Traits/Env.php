@@ -10,6 +10,7 @@ trait Env
     protected $root_dir_path = null;
     protected $filesystem    = null;
     protected $files         = null;
+    protected $site_port     = 0;
 
     /**
      * @return null|string[]
