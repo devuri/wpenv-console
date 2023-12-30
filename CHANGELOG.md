@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.9](https://github.com/devuri/wpenv-console/compare/v0.3.8...v0.3.9) (2023-12-30)
+
+
+### Bug Fixes
+
+* update `publickeys` is now `pubkey` ([71e30dc](https://github.com/devuri/wpenv-console/commit/71e30dc55667851a2e4c12a978bf0291bfd00205))
+
+
+### Miscellaneous Chores
+
+* build ([69bfcbb](https://github.com/devuri/wpenv-console/commit/69bfcbba0c8bdf4ae3f4be95bcb02497d0f8e22c))
+
 ## [0.3.8](https://github.com/devuri/wpenv-console/compare/v0.3.7...v0.3.8) (2023-12-25)
 
 
