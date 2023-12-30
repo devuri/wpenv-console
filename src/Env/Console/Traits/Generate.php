@@ -70,9 +70,9 @@ trait Generate
 
     public function create_uuid_key_file()
     {
-        $filename = 'env-'.self::uuid();
+        $filename = 'env-' . self::uuid();
 
-		$this->filesystem->copy(
+        $this->filesystem->copy(
             __DIR__ . '/sample-key.pub',
             $this->root_dir_path . '/pubkey/' . $filename . '.pub'
         );
