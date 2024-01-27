@@ -69,6 +69,7 @@ class SetupCommand extends Command
         $home_url       = "http://localhost:$this->site_port";
         $site_url       = '${WP_HOME}/wp';
         $dbprefix       = strtolower( 'wp_' . self::rand_str( 8 ) . '_' );
+        $dbrootpass     = strtolower( self::rand_str( 14 ) );
         $app_public_key = self::uuid();
 
         return <<<END
@@ -117,6 +118,9 @@ class SetupCommand extends Command
 		DB_PASSWORD=password
 		DB_HOST=localhost
 		DB_PREFIX=$dbprefix
+
+		# optional (for docker environments)
+		DB_ROOT_PASS=$dbrootpass
 
 		AUTH_KEY='$salt->AUTH_KEY'
 		SECURE_AUTH_KEY='$salt->SECURE_AUTH_KEY'
