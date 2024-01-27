@@ -83,12 +83,12 @@ class BackupCommand extends Command
     {
         // Create snapshot directory.
         if ( ! $this->filesystem->exists( $this->snapshot_dir ) ) {
-            $this->filesystem->mkdir( $this->snapshot_dir );
+            $this->filesystem->mkdir( $this->snapshot_dir, 0700 );
         }
 
         // Create backup_dir directory.
         if ( ! $this->filesystem->exists( $this->backup_dir ) ) {
-            $this->filesystem->mkdir( $this->backup_dir );
+            $this->filesystem->mkdir( $this->backup_dir, 0700 );
         }
     }
 
@@ -134,25 +134,22 @@ class BackupCommand extends Command
             throw new Exception( 'This command requires the Zip PHP extension. Install it and try again.' );
         }
 
-        // Create a ZIP archive of the site directory.
         $zip = new ZipArchive();
-        $zip->open( $this->backup_zip, ZipArchive::CREATE | ZipArchive::OVERWRITE );
-        $this->add_directory_zip( $this->root_dir_path, '', $zip );
-        $zip->close();
+        if ( true === $zip->open( $this->backup_zip, ZipArchive::CREATE | ZipArchive::OVERWRITE ) ) {
+            $this->add_directory_zip( $this->root_dir_path, '', $zip );
+            $zip->close();
 
-        // save snap info.
+            $this->filesystem->chmod( $this->backup_zip, 0600 );
+        }
+
+        // save snap info and remove db directory.
         $this->filesystem->copy( $this->root_dir_path . '/snap.json', $this->backup_dir . '/snap.json' );
-
-        // remove db directory.
         $this->filesystem->remove( $this->root_dir_path . '/.sqldb' );
         unlink( $this->root_dir_path . '/snap.json' );
         // $output->writeln( 'Backup snapshot created: ' . $this->backup_zip );
 
         if ( wpenv( 'S3ENCRYPTED_BACKUP' ) ) {
-            $this->encrypter->encrypt_file(
-                $this->backup_zip,
-                $this->encrypted_backup
-            );
+            $this->encrypter->encrypt_file( $this->backup_zip, $this->encrypted_backup );
         }
 
         // maybe upload to s3.
@@ -200,12 +197,9 @@ class BackupCommand extends Command
         $this->backup_plugins = wpenv( 'BACKUP_PLUGINS' );
 
         // zip filename
-        $this->backup_zip = $this->backup_dir . '/' . $this->backup_file;
-
-        // maybe encrypted backup.
+        $this->backup_zip       = $this->backup_dir . '/' . $this->backup_file;
         $this->encrypted_backup = $this->backup_zip . '.encrypted';
 
-        // setup s3
         $this->s3uploader = new S3Uploader(
             wpenv( 'S3_BACKUP_KEY', '' ),
             wpenv( 'S3_BACKUP_SECRET', '' ),
@@ -296,29 +290,31 @@ class BackupCommand extends Command
         ];
 
         if ( ! $this->filesystem->exists( $sqldb['directory'] ) ) {
-            $this->filesystem->mkdir( $sqldb['directory'] );
+            $this->filesystem->mkdir( $sqldb['directory'], 0700 );
         }
 
-        // Create a new process
         $process = Process::fromShellCommandline(
             sprintf(
                 'mysqldump -u %s -p%s %s > %s/%s',
                 $sqldb['db_user'],
-                $sqldb['db_passowrd'],
+                $sqldb['db_password'],
                 $sqldb['db_name'],
                 $sqldb['directory'],
-                $sqldb['db_file'],
+                $sqldb['db_file']
             )
         );
 
+        // Run the process silently
         $process->setInput( null );
 
-        // Run the process silently
         // https://symfony.com/doc/current/components/process.html#getting-real-time-process-output
         $process->run(
             function ( $type, $buffer ): void {
             }
         );
+
+        // Set restrictive permissions (0600) for the SQL dump file
+        $this->filesystem->chmod( $sqldb['directory'] . '/' . $sqldb['db_file'], 0600 );
 
         return [
             'db_name' => $sqldb['db_name'],
