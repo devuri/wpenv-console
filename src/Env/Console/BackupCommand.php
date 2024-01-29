@@ -113,8 +113,8 @@ class BackupCommand extends Command
         $this->create_backup_dir();
 
         if ( 0 !== $dbbackup['code'] ) {
-			$output->writeln( '<comment>Database backup may have failed.</comment>' );
-			$output->writeln( 'Check you database connection details.' );
+            $output->writeln( '<comment>Database backup may have failed.</comment>' );
+            $output->writeln( 'Check you database connection details.' );
             // return Command::FAILURE;
         }
 

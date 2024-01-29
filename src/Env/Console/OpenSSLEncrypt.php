@@ -17,7 +17,7 @@ class OpenSSLEncrypt
      * @param string $key    The encryption key.
      * @param string $cipher The cipher algorithm.
      */
-    public function __construct( string $key, string $cipher = 'AES-128-CBC' )
+    public function __construct( ?string $key = null, string $cipher = 'AES-128-CBC' )
     {
         $this->encryptionKey  = $key ?? $this->generateSecureKey();
         $this->allowedCiphers = openssl_get_cipher_methods();

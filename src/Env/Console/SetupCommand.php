@@ -46,12 +46,12 @@ class SetupCommand extends Command
             $this->filesystem->dumpFile( $this->files['env'], $this->envFileContent() );
             $output->writeln( '<info>Remember to update .env with the application domain and remove example.com.</info>' );
         } else {
-			$file_time = time();
-			$fresh_env_file = $this->files['env'].'-'.$file_time;
-			$output->writeln( '<comment>.env file already exist. we will create a new file </comment>' );
-			$this->filesystem->dumpFile( $fresh_env_file, $this->envFileContent() );
-			$output->writeln( '<info>New file created '.$file_time.', Remember to update the new file.</info>' );
-		}
+            $file_time      = time();
+            $fresh_env_file = $this->files['env'] . '-' . $file_time;
+            $output->writeln( '<comment>.env file already exist. we will create a new file </comment>' );
+            $this->filesystem->dumpFile( $fresh_env_file, $this->envFileContent() );
+            $output->writeln( '<info>New file created ' . $file_time . ', Remember to update the new file.</info>' );
+        }
 
         if ( ! $this->filesystem->exists( $this->files['secret'] ) ) {
             $output->writeln( '<comment>.secret file does not exist. we will create .secret file.</comment>' );

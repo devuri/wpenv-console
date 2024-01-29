@@ -726,6 +726,61 @@ Search.appendIndex(
             "summary": "Get\u0020the\u0020value\u0020of\u0020an\u0020environment\u0020variable.",
             "url": "namespaces/default.html#function_wpenv"
         },                {
+            "fqsen": "\\Urisoft\\Env\\Console\\OpenSSLEncrypt",
+            "name": "OpenSSLEncrypt",
+            "summary": "",
+            "url": "classes/Urisoft-Env-Console-OpenSSLEncrypt.html"
+        },                {
+            "fqsen": "\\Urisoft\\Env\\Console\\OpenSSLEncrypt\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Constructor\u0020for\u0020OpenSSL_Encryptor.",
+            "url": "classes/Urisoft-Env-Console-OpenSSLEncrypt.html#method___construct"
+        },                {
+            "fqsen": "\\Urisoft\\Env\\Console\\OpenSSLEncrypt\u003A\u003Aencrypt\u0028\u0029",
+            "name": "encrypt",
+            "summary": "Encrypts\u0020the\u0020given\u0020data.",
+            "url": "classes/Urisoft-Env-Console-OpenSSLEncrypt.html#method_encrypt"
+        },                {
+            "fqsen": "\\Urisoft\\Env\\Console\\OpenSSLEncrypt\u003A\u003Adecrypt\u0028\u0029",
+            "name": "decrypt",
+            "summary": "Decrypts\u0020the\u0020given\u0020data.",
+            "url": "classes/Urisoft-Env-Console-OpenSSLEncrypt.html#method_decrypt"
+        },                {
+            "fqsen": "\\Urisoft\\Env\\Console\\OpenSSLEncrypt\u003A\u003AsetCipherAlgorithm\u0028\u0029",
+            "name": "setCipherAlgorithm",
+            "summary": "Sets\u0020the\u0020cipher\u0020algorithm.",
+            "url": "classes/Urisoft-Env-Console-OpenSSLEncrypt.html#method_setCipherAlgorithm"
+        },                {
+            "fqsen": "\\Urisoft\\Env\\Console\\OpenSSLEncrypt\u003A\u003AgenerateSecureKey\u0028\u0029",
+            "name": "generateSecureKey",
+            "summary": "Generates\u0020a\u0020secure\u0020random\u0020key.",
+            "url": "classes/Urisoft-Env-Console-OpenSSLEncrypt.html#method_generateSecureKey"
+        },                {
+            "fqsen": "\\Urisoft\\Env\\Console\\OpenSSLEncrypt\u003A\u003AconvertOutput\u0028\u0029",
+            "name": "convertOutput",
+            "summary": "",
+            "url": "classes/Urisoft-Env-Console-OpenSSLEncrypt.html#method_convertOutput"
+        },                {
+            "fqsen": "\\Urisoft\\Env\\Console\\OpenSSLEncrypt\u003A\u003AconvertInput\u0028\u0029",
+            "name": "convertInput",
+            "summary": "",
+            "url": "classes/Urisoft-Env-Console-OpenSSLEncrypt.html#method_convertInput"
+        },                {
+            "fqsen": "\\Urisoft\\Env\\Console\\OpenSSLEncrypt\u003A\u003A\u0024encryptionKey",
+            "name": "encryptionKey",
+            "summary": "",
+            "url": "classes/Urisoft-Env-Console-OpenSSLEncrypt.html#property_encryptionKey"
+        },                {
+            "fqsen": "\\Urisoft\\Env\\Console\\OpenSSLEncrypt\u003A\u003A\u0024cipherAlgorithm",
+            "name": "cipherAlgorithm",
+            "summary": "",
+            "url": "classes/Urisoft-Env-Console-OpenSSLEncrypt.html#property_cipherAlgorithm"
+        },                {
+            "fqsen": "\\Urisoft\\Env\\Console\\OpenSSLEncrypt\u003A\u003A\u0024allowedCiphers",
+            "name": "allowedCiphers",
+            "summary": "",
+            "url": "classes/Urisoft-Env-Console-OpenSSLEncrypt.html#property_allowedCiphers"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
