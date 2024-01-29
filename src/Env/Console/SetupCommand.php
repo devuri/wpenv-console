@@ -45,6 +45,12 @@ class SetupCommand extends Command
             $output->writeln( '<comment>.env file does not exist. we will create the file.</comment>' );
             $this->filesystem->dumpFile( $this->files['env'], $this->envFileContent() );
             $output->writeln( '<info>Remember to update .env with the application domain and remove example.com.</info>' );
+        } else {
+            $file_time      = time();
+            $fresh_env_file = $this->files['env'] . '-' . $file_time;
+            $output->writeln( '<comment>.env file already exist. we will create a new file </comment>' );
+            $this->filesystem->dumpFile( $fresh_env_file, $this->envFileContent() );
+            $output->writeln( '<info>New file created ' . $file_time . ', Remember to update the new file.</info>' );
         }
 
         if ( ! $this->filesystem->exists( $this->files['secret'] ) ) {
@@ -69,6 +75,7 @@ class SetupCommand extends Command
         $home_url       = "http://localhost:$this->site_port";
         $site_url       = '${WP_HOME}/wp';
         $dbprefix       = strtolower( 'wp_' . self::rand_str( 8 ) . '_' );
+        $dbrootpass     = strtolower( self::rand_str( 14 ) );
         $app_public_key = self::uuid();
 
         return <<<END
@@ -103,13 +110,13 @@ class SetupCommand extends Command
 		BACKUP_PLUGINS=false
 
 		# s3backup
-		ENABLE_S3_BACKUP=false
-		S3ENCRYPTED_BACKUP=false
 		S3_BACKUP_KEY=null
 		S3_BACKUP_SECRET=null
+		S3_BACKUP_DIR=null
+		ENABLE_S3_BACKUP=false
+		S3ENCRYPTED_BACKUP=false
 		S3_BACKUP_BUCKET='wp-s3snaps'
 		S3_BACKUP_REGION='us-west-1'
-		S3_BACKUP_DIR=null
 		DELETE_LOCAL_S3BACKUP=false
 
 		DB_NAME=local
@@ -117,6 +124,9 @@ class SetupCommand extends Command
 		DB_PASSWORD=password
 		DB_HOST=localhost
 		DB_PREFIX=$dbprefix
+
+		# optional (for docker environments)
+		DB_ROOT_PASS=$dbrootpass
 
 		AUTH_KEY='$salt->AUTH_KEY'
 		SECURE_AUTH_KEY='$salt->SECURE_AUTH_KEY'
