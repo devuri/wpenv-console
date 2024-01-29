@@ -113,7 +113,9 @@ class BackupCommand extends Command
         $this->create_backup_dir();
 
         if ( 0 !== $dbbackup['code'] ) {
-            return Command::FAILURE;
+			$output->writeln( '<comment>Database backup may have failed.</comment>' );
+			$output->writeln( 'Check you database connection details.' );
+            // return Command::FAILURE;
         }
 
         $this->save_snap_info(
@@ -135,7 +137,7 @@ class BackupCommand extends Command
         }
 
         $zip = new ZipArchive();
-        if ( true === $zip->open( $this->backup_zip, ZipArchive::CREATE | ZipArchive::OVERWRITE ) ) {
+        if ( true === $zip->open( $this->backup_zip, ZipArchive::CREATE ) ) {
             $this->add_directory_zip( $this->root_dir_path, '', $zip );
             $zip->close();
 
@@ -146,7 +148,8 @@ class BackupCommand extends Command
         $this->filesystem->copy( $this->root_dir_path . '/snap.json', $this->backup_dir . '/snap.json' );
         $this->filesystem->remove( $this->root_dir_path . '/.sqldb' );
         unlink( $this->root_dir_path . '/snap.json' );
-        // $output->writeln( 'Backup snapshot created: ' . $this->backup_zip );
+        $output->writeln( '<info>Backup snapshot created:</info>' . $this->backup_file );
+        $output->writeln( '<info>Snapshot Timestamp:</info>' . $this->backup_time );
 
         if ( wpenv( 'S3ENCRYPTED_BACKUP' ) ) {
             $this->encrypter->encrypt_file( $this->backup_zip, $this->encrypted_backup );
@@ -296,10 +299,10 @@ class BackupCommand extends Command
         $process = Process::fromShellCommandline(
             sprintf(
                 'mysqldump -u %s -p%s %s > %s/%s',
-                $sqldb['db_user'],
-                $sqldb['db_password'],
-                $sqldb['db_name'],
-                $sqldb['directory'],
+                $sqldb['db_user'] ?? 'root',
+                $sqldb['db_password'] ?? 'password',
+                $sqldb['db_name'] ?? 'local',
+                $sqldb['directory'] ?? '.sqldb',
                 $sqldb['db_file']
             )
         );
