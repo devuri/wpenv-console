@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.3.10](https://github.com/devuri/wpenv-console/compare/v0.3.9...v0.3.10) (2024-01-29)
+
+
+### Features
+
+* adds `OpenSSLEncrypt` ([649bb6a](https://github.com/devuri/wpenv-console/commit/649bb6a9fd239283584930428851901f6e8ce8b4))
+* automated .env file refresh on Setup ([4ecddf3](https://github.com/devuri/wpenv-console/commit/4ecddf317a324ea126f5604b7f2e0035fb53b09f))
+
+
+### Bug Fixes
+
+* add optional `DB_ROOT_PASS` env file ([4a89c16](https://github.com/devuri/wpenv-console/commit/4a89c1683a72861a5d44fc41888f648479b4dde6))
+* better permission for backup dir `0700`, restrictive `(0600)` for  SQL dump file ([e9a1b5e](https://github.com/devuri/wpenv-console/commit/e9a1b5edfc1b340eb7050ab08b093a752448c4a6))
+* do not fail if db backup failed, add useful user feedback ([05c3f68](https://github.com/devuri/wpenv-console/commit/05c3f68bbf4630151b3b2e4469c8a500c7a0374c))
+
+
+### Miscellaneous Chores
+
+* build ([f1021bc](https://github.com/devuri/wpenv-console/commit/f1021bcef523be10aa9df566e1090605046876f1))
+
 ## [0.3.9](https://github.com/devuri/wpenv-console/compare/v0.3.8...v0.3.9) (2023-12-30)
 
 
