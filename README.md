@@ -63,6 +63,9 @@ WPEnv Console offers the following commands to simplify your WordPress developme
    ```bash
    php bin/nino setup <replacement_domain>
    ```
+   > Running `php nino setup` will check for an existing .env file. If found, 
+it creates a new version with a timestamp, facilitating an effortless 
+update to the latest .env file standards.
 
 4. **Install Package**: Add a plugin or theme via Composer using the slug only.
 
