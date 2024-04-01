@@ -23,7 +23,7 @@
     "require": {
         "php": "^7.4 || ^8.0 || ^8.1",
         "aws/aws-sdk-php": "^3.275",
-        "devuri/dot-access": "^0.2.2",
+        "devuri/dot-access": "^0.2.2 || ^0.3.0",
         "devuri/encryption": "^0.3",
         "devuri/secure-password": "^0.1",
         "devuri/uuid-generator": "^0.0.1",
