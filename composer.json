@@ -30,7 +30,7 @@
         "symfony/console": "5.4.*",
         "symfony/error-handler": "^5.4 || ^7.0",
         "symfony/filesystem": "^5.4",
-        "symfony/process": "^5.4",
+        "symfony/process": "^5.4 || ^7.0",
         "vlucas/phpdotenv": "^5.2"
     },
     "autoload": {
