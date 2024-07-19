@@ -28,7 +28,7 @@
         "devuri/secure-password": "^0.1",
         "devuri/uuid-generator": "^0.0.1",
         "symfony/console": "5.4.*",
-        "symfony/error-handler": "^5.4",
+        "symfony/error-handler": "^5.4 || ^7.0",
         "symfony/filesystem": "^5.4",
         "symfony/process": "^5.4",
         "vlucas/phpdotenv": "^5.2"
