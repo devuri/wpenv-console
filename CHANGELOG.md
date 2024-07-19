@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.3.11](https://github.com/devuri/wpenv-console/compare/v0.3.10...v0.3.11) (2024-07-19)
+
+
+### Miscellaneous Chores
+
+* **deps:** update devuri/dot-access requirement || ^0.3.0 ([49b3ffd](https://github.com/devuri/wpenv-console/commit/49b3ffd17fc31eea514b5be892867860a971aa72))
+* **deps:** update symfony/error-handler requirement || ^7.0 ([1f984c4](https://github.com/devuri/wpenv-console/commit/1f984c4282d7e89aba30081432c2d42111cbd09a))
+* **deps:** update symfony/process requirement || ^7.0 ([9e091dd](https://github.com/devuri/wpenv-console/commit/9e091dd9961966cf96c6f48fd800d66cc8e6affa))
+
 ## [0.3.10](https://github.com/devuri/wpenv-console/compare/v0.3.9...v0.3.10) (2024-01-29)
 
 
